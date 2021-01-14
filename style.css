@@ -5,6 +5,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+
 /* global css */
 h2 {
     font-size: clamp(2rem, 3.5vw, 50px);
@@ -14,26 +15,33 @@ h3 {
     font-size: clamp(1.5rem, 2.7vw, 40px);
 }
 
-.para p {
+.para p{
     font-size: clamp(16px, 2vw, 22px);
     padding-bottom: 1rem;
+    max-width: 700px;
+}
+
+h1,h2,h3,h4{
+    color: #191919;
 }
 
 /* button and links */
 .button{
     display: inline-block;
     text-decoration: none;
+    text-transform: uppercase;
     background: none;
-    border: 2px solid black;
+    border: 2px solid #fff;
     font-size: 1em;
     font-weight: bold;
-    color: #000;
+    color: #fff;
     padding: 20px 30px;
-    margin-bottom: 20px;
+    margin: 40px 0;
     position: relative;
+    z-index: 1;
 }
 .button:hover{
-    color: #fff;
+    color: #000;
 } 
 
 .button::after{
@@ -45,7 +53,7 @@ h3 {
     height: 100%;
     transform: scaleY(0);
     transform-origin: bottom;
-    background-color: #000;
+    background-color: #fff;
     z-index: -1;
     transition: all 0.3s ease-out;
 }
@@ -60,18 +68,18 @@ nav {
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: #30383D;
+    background-color: #01010a;
 }
   
 header {
     position: relative;
 }
   
-.logo {
-    color: rgb(266, 266, 266);
+.logo h4 {
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 20px;
+    font-size: 2em;
 }
   
 .nav-links {
@@ -88,6 +96,7 @@ header {
     display: block;
     line-height: 40px;
     padding: 1px 30px;
+    text-transform: uppercase;
 }
 .nav-links li::after {
     content: "";
@@ -128,6 +137,55 @@ header {
     margin: 5px;
     transition: all 0.3s ease;
 }
+
+/* hero section */
+.hero {
+    position: relative;
+}
+.hero-heading {
+    position: absolute;
+    color: #fff;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: clamp(50px, 6vw, 80px);
+}
+.hero img {
+    width: 100%;
+    height: 92vh;
+    object-fit: cover;
+  }
+
+.hero-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: #fff;
+}
+
+
+.fa-chevron-down{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    font-size: 4em;
+    color: #fff;
+    opacity: 0.6;
+    animation: float 5s ease-out infinite;
+}
+
+.full-bg{
+    position:sticky;
+    width: 100vw;
+    height: 100vh;
+}
+
+@keyframes float{
+    50%{
+        transform: translateY(20px)
+    }
+}
   
 /* content */
 main {
@@ -137,57 +195,35 @@ main {
     width: 100%;
     max-width: 1440px;
 }
-
-.people{
-    background-color: chartreuse;
-   
-}
   
-.hero {
-    position: relative;
-}
-.hero-heading {
-    position: absolute;
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(50px, 6vw, 80px);
-}
-.hero img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
   
-
-  
-  /* container */
+/* container */
 .container {
     margin: 0 auto;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 1rem 0;
     margin-bottom: 3rem;
 }
 .container > * {
     flex-basis: 50%;
 }
-  
 
-  
-.image img {
-    max-width: 100%;
-    display: block;
+.rocketName{
+    display: inline-block;
 }
 
-@media screen and (min-width: 769px) {
-    .container > * + * {
-      margin-left: 2em;
-    }
+.date{
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #57A4D6;
 }
   
+
+
+
 @media screen and (max-width: 1024px) {
     .nav-links {
       width: 60%;
@@ -210,7 +246,6 @@ main {
   
     .container {
       padding: 0 0.5rem;
-      flex-direction: column;
     }
   
     /* nav */
@@ -246,15 +281,6 @@ main {
 .nav-active {
     transform: translateX(0%);
     display: block;
-}
-  
-/* footer */
-footer {
-    width: 100%;
-    height: 20vh;
-    text-align: center;
-    background-color: black;
-    color: white;
 }
   
 @keyframes navLinkFade {
