@@ -9,12 +9,12 @@
 .button{
     display: inline-block;
     text-decoration: none;
-    background:#3734D9;
+    background: #3734D9;
     font-size: 1em;
     font-weight: bold;
     color: #fff;
     padding: 10px 20px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
   
 nav {
@@ -22,7 +22,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: #25305C;
+    background-color: #17165C;
 }
   
 header {
