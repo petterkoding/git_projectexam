@@ -2,9 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Oswald', 'Arial', sans-serif;
 }
-
 
 /* global css */
 h2 {
@@ -19,10 +18,12 @@ h3 {
     font-size: clamp(16px, 2vw, 22px);
     padding-bottom: 1rem;
     max-width: 700px;
+    color: #363636;
 }
 
 h1,h2,h3,h4{
     color: #191919;
+    
 }
 
 /* button and links */
@@ -40,6 +41,7 @@ h1,h2,h3,h4{
     position: relative;
     z-index: 1;
 }
+
 .button:hover{
     color: #000;
 } 
@@ -58,6 +60,31 @@ h1,h2,h3,h4{
     transition: all 0.3s ease-out;
 }
 .button:hover::after{
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.button.dark{
+    border: 2px solid #000;
+    color: #000;
+}
+.button.dark:hover{
+    color: #fff;
+}
+.button.dark::after{
+    position: absolute;
+    content: "";
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    background-color: #000;
+    z-index: -1;
+    transition: all 0.3s ease-out;
+} 
+.button.dark:hover::after{
     transform: scaleY(1);
     transform-origin: top;
 }
@@ -154,6 +181,7 @@ header {
     width: 100%;
     height: 92vh;
     object-fit: cover;
+    display: block;
   }
 
 .hero-text{
@@ -162,8 +190,11 @@ header {
     left: 50%;
     transform: translate(-50%, 0);
     color: #fff;
+    font-size: clamp(16px, 2vw, 22px);
+    padding-bottom: 1rem;
+    max-width: 700px;
+    
 }
-
 
 .fa-chevron-down{
     position: absolute;
@@ -175,11 +206,145 @@ header {
     animation: float 5s ease-out infinite;
 }
 
-.full-bg{
-    position:sticky;
-    width: 100vw;
+
+
+/* turksat */
+
+.two-col-container{
+    margin: 0 auto;
     height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* padding: 1rem 0; */
+    justify-content: center;
+    justify-items: center;
+    /* margin-top: 5em; */
+
 }
+.two-col-container > * {
+    flex-basis: 40%;
+}
+
+.column-1{
+    flex:2;
+}
+
+.column-2{
+    padding: 0 25px;
+    flex: 1;
+}
+
+.launchTrailImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.turksat{
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    color: #000;
+    padding-top: 20%;
+}
+
+.rocketName{
+    color: #000;
+    font-size: 5em;
+}
+
+.launch-date{
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* people in space */
+.center-wrapper{
+    max-width: 1400px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 7em;
+    margin-bottom: 7em;
+}
+.center-wrapper .column-1{
+    padding: 0 25px;
+}
+
+#station-img{
+    max-width: 700px;
+    height: auto;
+}
+
+.people{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    font-size: 1.5em;
+}
+
+.currentPeopleInSpace{
+    font-size: 1.3em;
+}
+
+/* newsletter section */
+.newsletter{
+    background-image: url(images/turksat.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+}
+.sub-div{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.sub-div h3{
+    color: #fff;
+}
+
+input{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    width: 350px;
+    padding: 20px 30px;
+    margin: 40px 0;
+    transition: all 0.3s ease-out;
+}
+
+input:focus{
+    background-color: rgba(255,255,255, 0.8);
+    color: #000;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    height: 180px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 @keyframes float{
     50%{
@@ -187,42 +352,6 @@ header {
     }
 }
   
-/* content */
-main {
-    display: block;
-    margin: 0 auto;
-    /* width: min(90%, 1440px); */
-    width: 100%;
-    max-width: 1440px;
-}
-  
-  
-/* container */
-.container {
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0;
-    margin-bottom: 3rem;
-}
-.container > * {
-    flex-basis: 50%;
-}
-
-.rocketName{
-    display: inline-block;
-}
-
-.date{
-    display: inline-block;
-    font-size: 1.4em;
-    font-weight: bold;
-    color: #57A4D6;
-}
-  
-
-
 
 @media screen and (max-width: 1024px) {
     .nav-links {

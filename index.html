@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -26,8 +28,8 @@
       </header>
       <section class="hero">
         <img src="images/orbit.jpg" alt="satellite in space orbiting Earth">
-        <h1 class="hero-heading">The Launch hub</h1>
-        <div class="para hero-text">
+        <h1 class="hero-heading">Welcome to Lift Off</h1>
+        <div class="hero-text">
           <p>
           Lift off is a SpaceX microsite for rocket, capsule and launch data.
           We focus on raising awareness about space program activity around the world.
@@ -41,32 +43,49 @@
         <span><i class="fas fa-chevron-down"></i></span>
       </section>
       <main>
-        <section>
-          <!-- <h2>Welcome to Lift off</h2>
-          <div class="para">
-            <p>
-            Lift off is a SpaceX microsite for rocket, capsule and launch data.
-            We focus on raising awareness about space program activity around the world.
-            </p>
-            <p>View previous launches, upcoming events and get information about each projects.</p>
-            <a class="button" href="#">View all Launches</a>
-          </div> -->
-
-        <img class="full-bg" src="images/station.jpg" alt="satellite in space orbiting Earth">
-         
-
+        <section class="two-col-container">
+          <div class="column-1">
+            <img class="launchTrailImg" src="images/liftoff.jpg" alt="satellite in space orbiting Earth">
+          </div>
+          <div class="column-2">
+            <div class="latest-details"></div>
+        </div>
+          
         </section>
        
     
-        <div class="container">
-        
-          <div class="latest"></div>
-        </div>
-        <!-- <section class="container">
+        <div class="center-wrapper">
+          <section class="two-col-container">
+            <div class="column-1">
+              <div class="para">
+                <h3>Attention spacecadet</h3>
+                <p>Get to know the current people in space and learn about what's going on at the International Space Station.</p>
+                <p>Watch Live streaming video and read about Education on Station that brings inspiration to the next generation.</p>
+                <a class="button dark" href="https://www.nasa.gov/audience/foreducators/stem-on-station/know_station" target="_blank">Learn more</a>
+              </div>
+            </div>    
+
+            <div class="column-2">
+              <div class="currentPeopleInSpace"></div>
           <div class="peopleInSpace"></div>
-        </section> -->
+            </div>
+          </section>
+        </div>
+
+        <section class="newsletter">
+          <div class="sub-div">
+            <form action="#">
+              <h3>Subscribe to our newsletter</h3>
+              <input type="mail" placeholder="e.g.subscribe@mail.com">
+              <button class="button">GO</button>
+            </form>
+          </div>
+        </section>
         
       </main>
+      <footer>
+        Design by Petter Iversen
+      </footer>
     
     
     <script src="script.js"></script>
