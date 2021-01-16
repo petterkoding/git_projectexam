@@ -32,7 +32,7 @@ async function getPeopleInSpace() {
 
 getPeopleInSpace();
 
-const pastLaunch = "https://api.spacexdata.com/v4/launches/latest";
+const latestLaunch = "https://api.spacexdata.com/v4/launches/latest";
 
 const latestDetails = document.querySelector(".latest-details")
 
@@ -41,7 +41,7 @@ latestDetails.innerHTML = "";
 
 async function getLatestLaunch(){
     try{
-        const response = await fetch(pastLaunch);
+        const response = await fetch(latestLaunch);
         const result = await response.json();
         console.log(result)
         latestDetails.classList.add("turksat")
@@ -64,3 +64,72 @@ async function getLatestLaunch(){
 }
 
 getLatestLaunch();
+
+
+// get past launches SpaceX
+
+const pastLaunches = "https://api.spacexdata.com/v4/launches/past";
+
+const timelineContainer = document.querySelector(".timelineContainer")
+
+async function getPastLaunches() {
+    try {
+        const response = await fetch(pastLaunches);
+        const result = await response.json();
+        
+        timelineContainer.innerHTML = "";
+
+        result.reverse();
+        console.log(result)
+        for (let i = 0; i < result.length; i++) {
+            
+            if (result.length = 5) {
+                timelineContainer.classList.add(".recentLaunchTarget");
+                timelineContainer.innerHTML += `<div class="recentLaunchTarget">
+                                                    <h3>${result[i].name}</h3>
+                                                </div>`;
+                
+                const recLaunchDiv = document.querySelectorAll(".recentLaunchTarget")
+                // console.log(result[i].links.flickr.original[0]);
+
+                for (let i = 0; i < recLaunchDiv.length; i++) {
+                    let imageURL = result[i].links.flickr.original[0];
+                    recLaunchDiv[i].style.backgroundImage = `url(${imageURL})`;
+                }
+            }
+            
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+getPastLaunches();
+
+
+
+const issLocation = "http://api.open-notify.org/iss-now.json";
+
+const issContainer = document.querySelector(".issLocation")
+
+async function getIssLocation() {
+    try {
+        const response = await fetch(issLocation)
+        const location = await response.json()
+        console.log(location)
+        const latitude = location.iss_position.latitude;
+        const longitude = location.iss_position.longitude;
+
+        issContainer.innerHTML = `Latitude: ${latitude} Longitude: ${longitude} <iframe src="https://maps.google.com/maps?q=${latitude}, ${longitude}&z=15&output=embed" width="960" height="570" frameborder="0" style="border:0"></iframe>`;
+
+    } catch (error) {
+        console.log(error)
+    } finally {
+        console.log("location found")
+    }
+}
+
+getIssLocation();
+
+
+
