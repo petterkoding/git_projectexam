@@ -87,6 +87,7 @@ async function getPastLaunches() {
                 timelineContainer.classList.add(".recentLaunchTarget");
                 timelineContainer.innerHTML += `<div class="recentLaunchTarget">
                                                     <h3>${result[i].name}</h3>
+                                                    <p>${result[i].date_local}</p>
                                                 </div>`;
                 
                 const recLaunchDiv = document.querySelectorAll(".recentLaunchTarget")
