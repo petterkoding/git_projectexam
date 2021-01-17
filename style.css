@@ -433,6 +433,31 @@ footer{
         opacity: 1;
     }
 }
+
+
+
+/* CONTACT PAGE */
+
+.contact-page-hero{
+    background-image: url(images/sn8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 92vh;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 50%;
+}
+
+#sn8-img{
+    width: 100%;
+    flex: 2;
+}
+
+.contact-form{
+    flex: 3;
+}
+
+
   
 
 @media screen and (max-width: 1024px) {
