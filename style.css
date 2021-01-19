@@ -6,6 +6,7 @@
 }
 
 /* global css */
+
 h2 {
     font-size: clamp(2rem, 3.5vw, 50px);
     margin: 2rem 0 1rem 0;
@@ -14,8 +15,9 @@ h3 {
     font-size: clamp(1.5rem, 2.7vw, 40px);
 }
 
+
 .para p{
-    font-size: clamp(16px, 2vw, 22px);
+    font-size: clamp(19px, 2vw, 22px);
     padding-bottom: 1rem;
     max-width: 700px;
     color: #363636;
@@ -26,6 +28,12 @@ h1,h2,h3,h4{
     
 }
 
+/* active page */
+
+.active-page{
+    border-bottom: 3px solid orange;
+}
+
 /* button and links */
 .button{
     display: inline-block;
@@ -33,10 +41,10 @@ h1,h2,h3,h4{
     text-transform: uppercase;
     background: none;
     border: 2px solid #fff;
-    font-size: 1em;
+    font-size: clamp(16px, 2vw, 22px);
     font-weight: bold;
     color: #fff;
-    padding: 20px 30px;
+    padding: 15px 30px;
     margin: 40px 0;
     position: relative;
     z-index: 1;
@@ -49,8 +57,8 @@ h1,h2,h3,h4{
 .button::after{
     position: absolute;
     content: "";
-    top:0;
-    right:0;
+    top:0px;
+    right:0px;
     width: 100%;
     height: 100%;
     transform: scaleY(0);
@@ -67,7 +75,6 @@ h1,h2,h3,h4{
 .button.dark{
     border: 2px solid #000;
     color: #000;
-    font-size: 1em;
 }
 .button.dark:hover{
     color: #fff;
@@ -368,8 +375,13 @@ iframe{
     height: 100vh;
     width: 100%;
     position: relative;
-
 }
+.newsletter p{
+    color: #fff;
+    font-size: clamp(16px, 2vw, 22px);
+    
+}
+
 .sub-div{
     position: absolute;
     top: 20%;
@@ -384,16 +396,20 @@ iframe{
 input{
     display: inline-block;
     text-decoration: none;
-    text-transform: uppercase;
     background: none;
     border: 2px solid #fff;
-    font-size: 1em;
-    font-weight: bold;
+    font-size: clamp(16px, 2vw, 22px);
     color: #fff;
-    width: 350px;
-    padding: 20px 30px;
-    margin: 40px 0;
-    transition: all 0.3s ease-out;
+    width: 400px;
+    padding-left: 5px;
+    padding: 15px 30px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease-out
+}
+input.black{
+    border: 2px solid #000;
+    color: #000;
+   
 }
 
 input:focus{
@@ -402,17 +418,18 @@ input:focus{
 }
 
 input:valid {
-    border-bottom: 2px solid green;
+    border-bottom: 3px solid green;
     outline: none;
   }
   input:focus:invalid {
-    border-bottom: 2px solid red;
+    border-bottom: 3px solid red;
     outline: none;
   }
 
 button:hover{
     cursor: pointer;
 }
+
 
 footer{
     width: 100%;
@@ -439,34 +456,75 @@ footer{
 /* CONTACT PAGE */
 
 .contact-page-hero{
-    background-image: url(images/sn8.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 100%;
     height: 92vh;
     display: flex;
     flex-direction: row;
-    flex-basis: 50%;
+    margin-bottom: 10em;
 }
 
-#sn8-img{
+#sn8-img img{
     width: 100%;
-    flex: 2;
+    max-width: 60vw;
+    height: 92vh;
+    object-fit: cover;
+
 }
 
-.contact-form{
-    flex: 3;
+.contact-heading{
+    font-size: clamp(40px, 5vw, 60px);
+    margin-bottom: 10px;
+}
+
+.contact-wrapper{
+    max-width: 40vw;
+    height: 92vh;
+    margin: 1% 5%;
+}
+.contact-wrapper .para{
+    margin: 30px 0;
+}
+.contact-wrapper .fas, .contact-wrapper .far{
+    font-size: clamp(30px, 2vw, 22px);
+    padding-right: 10px;
+}
+
+textarea{
+    max-width: 30vw;
+    min-width: 400px;
+    min-height: 20vh;
+    max-height: 20vh;
+    font-size: 1.2em;
+    padding: 7px;
+}
+
+form label{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+fieldset{
+    border: none;
+}
+
+legend{
+    font-size: 2em;
+}
+
+label, textarea{
+    display: block;
 }
 
 
   
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
     .nav-links {
       width: 60%;
     }
-}
+} */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
     main {
       width: 100%;
     }
@@ -512,6 +570,21 @@ footer{
     .burger {
       display: block;
     }
+
+    /* contact page */
+    #sn8-img img{
+        display: none;
+    }
+
+    textarea{
+        max-width: 400px;
+        min-width: 400px;
+        min-height: 20vh;
+        max-height: 20vh;
+        font-size: 1.2em;
+        padding: 7px;
+    }
+    
 }
   
 .nav-active {
