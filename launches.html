@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo"><h4>SpaceX Cowboys</h4></div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active-page" href="#">Launches</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a  href="contact.html">Contact</a></li>
+          </ul>
+          <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </nav>
+    </header>
+
+    
+      <!-- hero -->
+    <section class="hero hero--launch">
+        <img class="launches-img" src="images/starship.jpg" alt="satellite in space orbiting Earth">
+        <div class="hero-text">
+            <h1 class="hero-heading">SpaceX Launches</h1>
+            <p>
+              View SpaceX Launch data and details for each project.
+            </p>
+
+            <a class="button" href="#">View all Launches</a>
+        </div>
+        <!-- chevron pointing down -->
+        <span><i class="fas fa-chevron-down"></i></span>
+    </section>
+    <main>
+        <div class="launch-results"></div>
+        <div class="results2"></div>
+        <button id="firstPage" class="button dark">1</button>
+        <button id="secondPage" class="button dark">2</button>
+    </main>
+    
+    <footer>
+        Design by Petter Iversen
+    </footer>
+    <script src="script.js"></script>
+    <script src="launches.js"></script>
+    
+</body>
+</html>

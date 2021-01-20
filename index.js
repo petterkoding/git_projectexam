@@ -32,6 +32,8 @@ async function getPeopleInSpace() {
 
 getPeopleInSpace();
 
+
+
 const latestLaunch = "https://api.spacexdata.com/v4/launches/latest";
 
 const latestDetails = document.querySelector(".latest-details")
