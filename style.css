@@ -549,7 +549,13 @@ label, textarea{
     background-color: rgba(211, 211, 211, 0.171);
     padding: 20px;
     margin: 20px;
+    /* display: none; */
 }
+
+.hidden{
+    display: none;
+}
+
 
 .visible{
     display: block;
@@ -561,7 +567,78 @@ label, textarea{
     object-fit: cover;
 }
 
-  
+
+/* details page */
+
+.details-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.details-wrapper > *{
+  flex-basis: 50%;
+}
+
+.detail-img-styles{
+    width: 400px;
+    height: auto;
+}
+
+/* Gallery styles */
+
+.gallery-wrapper{
+    margin: 0 auto;
+    max-width: 120em;
+    padding: 3em 0;
+}
+
+.gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: auto;
+    grid-auto-flow: dense;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+}
+
+.gallery-item1 img,
+.gallery-item2 img,
+.gallery-item3 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+}
+
+.galleryContainer1{
+    margin-bottom: 2em;
+}
+.galleryContainer2{
+    margin-bottom: 5em;
+}
+
+
+/* first group of images */
+.gallery-item1:nth-child(3n){
+    grid-row: span 2;
+    grid-column: span 1;  
+}
+.gallery-item1:nth-child(1){
+    grid-row: span 2;
+    grid-column: span 2;  
+}
+/* second group of images */
+.gallery-item2:nth-child(3n+1){
+    grid-row: span 2;
+    grid-column: span 1;
+}
+
+
+
+
+
+
+
 
 /* @media screen and (max-width: 1024px) {
     .nav-links {
