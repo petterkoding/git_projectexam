@@ -10,22 +10,24 @@
     <title>Space X Cowboys Homepage</title>
 </head>
 <body>
-    <header>
-        <nav>
-          <div class="logo"><h4>SpaceX cowboys</h4></div>
-          <ul class="nav-links">
-            <li><a class="active-page" href="index.html">Home</a></li>
-            <li><a href="launches.html">Launches</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-          <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-          </div>
-        </nav>
-      </header>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html">SpaceX Cowboys</a>
+      </div>
+        <ul class="nav-links">
+          <li><a class="active-page" href="index.html">Home</a></li>
+          <li><a href="launches.html">Launches</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header>
       <section class="hero">
         <img src="images/orbit.jpg" alt="satellite in space orbiting Earth">
         
@@ -36,7 +38,7 @@
           We focus on raising awareness about space program activity around the world.
           </p>
           <p>View previous launches, upcoming events and get information about each projects.</p>
-          <a class="button" href="#">View all Launches</a>
+          <a class="button" href="launches.html">View all Launches</a>
         </div>
 
 
@@ -44,14 +46,28 @@
         <span><i class="fas fa-chevron-down"></i></span>
       </section>
       <main>
+        <!-- latest -->
         <section class="two-col-container">
           <div class="column-1">
-            <img class="launchTrailImg" src="images/liftoff.jpg" alt="satellite in space orbiting Earth">
+            <div class="latest-img"></div>
           </div>
           <div class="column-2">
             <div class="latest-details"></div>
-        </div>
-          
+          </div>
+        </section>
+
+        <!-- upcoming launch -->
+        <section class="center-wrapper">
+          <div class="two-col-container">
+            <div class="column-1">
+              <h3>Upcoming Launch</h3>
+              <div class="upcomingContainer"></div>
+            </div>
+  
+            <div class="column-2">
+              <div class="upcomingImgContainer"></div>
+            </div>
+          </div>        
         </section>
        
         <!-- timeline -->
@@ -76,7 +92,7 @@
 
             <div class="column-2">
               <div class="currentPeopleInSpace"></div>
-          <div class="peopleInSpace"></div>
+              <div class="peopleInSpace"></div>
             </div>
           </section>
         </div>
@@ -99,7 +115,20 @@
         
       </main>
       <footer>
-        Design by Petter Iversen
+        <div class="footer-wrapper">
+          <div class="logo">
+            <a href="index.html">SpaceX Cowboys</a>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="launches.html">Launches</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="code-by">Code by: Petter Iversen</div>
+        </div>
       </footer>
     
     

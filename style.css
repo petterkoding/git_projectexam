@@ -5,6 +5,7 @@
     font-family: 'Oswald', 'Arial', sans-serif;
 }
 
+
 /* global css */
 
 h2 {
@@ -24,7 +25,7 @@ h3 {
 }
 
 h1,h2,h3,h4{
-    color: #191919;
+    color: #1a1a1a;
     
 }
 
@@ -110,11 +111,17 @@ header {
     position: relative;
 }
   
-.logo h4 {
-    color: #fff;
+.logo a{
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 2em;
+    font-weight: 800;
+    text-decoration: none;
+}
+.logo a:hover {
+    color: rgb(214, 214, 214);
+    cursor: pointer;
 }
   
 .nav-links {
@@ -131,9 +138,14 @@ header {
     display: block;
     line-height: 40px;
     padding: 1px 30px;
+    color: rgba(255, 255, 255, 1);
     text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
 }
-.nav-links li::after {
+.nav-links li a::after {
     content: "";
     position: absolute;
     bottom: 0px;
@@ -145,19 +157,18 @@ header {
     transform-origin: left;
     transition: all 0.25s ease;
 }
-.nav-links li:hover::after {
+
+.nav-links li a:hover::after {
     transform: scaleX(1);
     transform-origin: right;
     cursor: pointer;
+    color: blue;
 }
-  
-.nav-links a {
-    color: rgb(266, 266, 266);
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-weight: bold;
-    font-size: 14px;
+
+.nav-links a:active{
+    color: orange;
 }
+
   
   /* mobile nav */
 .burger {
@@ -219,7 +230,7 @@ header {
 
 
 
-/* turksat */
+/* Latest */
 
 .two-col-container{
     margin: 0 auto;
@@ -245,14 +256,15 @@ header {
     flex: 1;
 }
 
-.launchTrailImg{
+.two-col-img{
     width: 100%;
-    height: 100%;
+    height: 80vh;
     object-fit: cover;
     display: block;
+    border-right: 30px solid orange;
 }
 
-.turksat{
+.two-col-info{
     display: block;
     width: 100%;
     max-width: 700px;
@@ -281,23 +293,33 @@ header {
 }
 
 .timelineContainer{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-content: space-around;
 }
 
 .recentLaunchTarget{
     height: 350px;
     width: 300px;
+    padding: 10px 15px;
+    margin: 20px;
     background-size: cover;
     transition: all 0.4s ease-out;
     opacity: 1;
     filter: sepia(0.4);
     position: relative;
     transition: all 0.2s ease;
+    position: relative;
 }
-.recentLaunchTarget h3, .recentLaunchTarget p{
+.recentLaunchTarget h3{
     color: #fff;
+}
+
+.recentLaunchTarget p{
+    position: absolute;
+    font-size: 1.4em;
+    top: -29px;
+    left: 0px;
 }
 
 .recentLaunchTarget:hover{
@@ -306,7 +328,7 @@ header {
     cursor: pointer; 
 }
 
-/* test */
+/* hover recent launches */
 .recentLaunchTarget::before{
     position: absolute;
     content:"";
@@ -314,15 +336,13 @@ header {
     bottom: -4%;
     height: 10px;
     width: 100%;
-    background-color: rgb(19, 19, 19);
-    transform:scale(0);
-    
+    background-color: orange;
+    transform:scale(0);  
 }
 
 .recentLaunchTarget:hover::before{
     transform: scale(1);
     display: block;
-    
 }
 
 
@@ -334,10 +354,10 @@ header {
 /* people in space */
 .center-wrapper{
     max-width: 1400px;
-    height: 400px;
+    height: 700px;
     margin: 0 auto;
-    margin-top: 7em;
-    margin-bottom: 7em;
+    margin-top: 3em;
+    margin-bottom: 4em;
 }
 .center-wrapper .column-1{
     padding: 0 25px;
@@ -357,6 +377,7 @@ header {
 .currentPeopleInSpace{
     font-size: 1.3em;
 }
+
 
 /* location ISS */
 
@@ -420,14 +441,16 @@ input:focus{
     color: #000;
 }
 
+/* validation input */
 input:valid {
     border-bottom: 3px solid green;
     outline: none;
-  }
-  input:focus:invalid {
+}
+input:focus:invalid {
     border-bottom: 3px solid red;
     outline: none;
-  }
+}
+
 
 button:hover{
     cursor: pointer;
@@ -436,14 +459,38 @@ button:hover{
 
 footer{
     width: 100%;
-    height: 180px;
+    height: 200px;
     background-color: #000;
     color: #fff;
+    
+}
+
+.footer-wrapper{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
+
+footer ul li{
+    display: inline-block;
+    margin: 0 3em;
+    font-size: 1.3em;
+}
+
+footer li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+footer li a:hover{
+    border-bottom: 3px solid white;
+}
+
+
 
 
 
@@ -493,7 +540,7 @@ footer{
 }
 
 textarea{
-    max-width: 30vw;
+    max-width: 20vw;
     min-width: 400px;
     min-height: 20vh;
     max-height: 20vh;
@@ -517,6 +564,41 @@ legend{
 label, textarea{
     display: block;
 }
+
+
+/* form validation styles */
+
+.submitMessageSuccess{
+    font-size: 1.2em;
+    color: green;
+    border: 1px solid green;
+    padding: 7px;
+}
+
+#nameError, #emailError, #subjectError{
+    margin-top: -30px;
+    color: red;
+    text-decoration: underline;
+}
+
+.submit-button{
+    margin-top: 2em;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #000;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+#submit-btn:disabled{
+    background-color: lightgray;
+    border: 1px solid grey;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
 
 /* Launches page */
 
@@ -552,38 +634,59 @@ label, textarea{
     /* display: none; */
 }
 
-.hidden{
-    display: none;
-}
-
-
-.visible{
-    display: block;
-}
-
 .card-img{
     width: 320px;
     height: 350px;
     object-fit: cover;
 }
 
+.two-col-container h3{
+    display: inline-block;
+    border-bottom: 10px solid orange;
+    padding-bottom: 5px;
+}
+
 
 /* details page */
 
-.details-wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.details-wrapper > *{
-  flex-basis: 50%;
+.read-more h3{
+    font-size: 4em;
+    font-weight: 100;
 }
 
-.detail-img-styles{
-    width: 400px;
-    height: auto;
+.read-more span{
+    font-weight: 800;
 }
+
+.read-more p{
+    margin: 2em 0;
+}
+
+.read-more .link{
+    font-size: 1.4em;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 3px solid orange;
+}
+
+
+.detail-heading{
+    font-size: 4em;
+}
+
+.details-gallery{
+    margin: 0 auto;
+    width: 60%;
+    padding: 8em 0;
+}
+
+.details-gallery img{
+    display: inline-block;
+    width: 100%;
+    margin: 1em 0;
+    height: 70vh;
+    object-fit: cover;
+} 
 
 /* Gallery styles */
 
@@ -597,14 +700,11 @@ label, textarea{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: auto;
-    grid-auto-flow: dense;
     grid-column-gap: 15px;
     grid-row-gap: 15px;
 }
 
-.gallery-item1 img,
-.gallery-item2 img,
-.gallery-item3 img{
+.gallery-images{
     width: 100%;
     height: 100%;
     object-fit: cover;  
@@ -616,25 +716,6 @@ label, textarea{
 .galleryContainer2{
     margin-bottom: 5em;
 }
-
-
-/* first group of images */
-.gallery-item1:nth-child(3n){
-    grid-row: span 2;
-    grid-column: span 1;  
-}
-
-/* second group of images */
-.gallery-item2:nth-child(3n+1){
-    grid-row: span 2;
-    grid-column: span 1;
-}
-
-
-
-
-
-
 
 
 /* @media screen and (max-width: 1024px) {

@@ -12,7 +12,9 @@
 <body>
     <header>
         <nav>
-          <div class="logo"><h4>SpaceX Cowboys</h4></div>
+          <div class="logo">
+              <a href="index.html">SpaceX Cowboys</a>
+          </div>
           <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="launches.html">Launches</a></li>
@@ -48,6 +50,7 @@
                     </div>
                 </div>
                 
+                <div id="submitMessage"></div>
                 <!-- form -->
                 <form action="#" >
                     <fieldset>
@@ -55,25 +58,35 @@
                         <!-- name -->
                         <div>
                             <label for="name">Your Name</label>
-                            <input class="black" type="text" id="name" required>
+                            <input class="black" type="text" id="name" minlength="2" maxlength="15" required>
+                            <div id="nameError">
+                                <p>Name must be atleast 2 characters</p>
+                            </div>
                         </div>
 
                         <!-- email -->
                         <div>
                             <label for="email">Your Email</label>
                             <input class="black" type="email" id="email" required>
+                            <div id="emailError">
+                                <p>Email must be valid</p>
+                            </div>
                         </div>
                         <!-- subject -->
                         <div>
                             <label for="subject">Subject</label>
-                            <input class="black" type="text" id="subject" minlength="5" maxlength="20" required>
+                            <input class="black" type="text" id="subject" minlength="7" maxlength="20" required>
+                            <div id="subjectError">
+                                <p>Subject must be atleast 7 characters</p>
+                            </div>
                         </div>
+
                         <!-- comments -->
                         <div>
                             <label for="comments">Comments</label>
                             <textarea name="comments" id="comments" ></textarea>
                         </div>
-                        <button class="button dark" type="submit">Submit</button>
+                        <button type="submit" class="submit-button" id="submit-btn" disabled>Submit</button>
                     </fieldset>
                 </form>
             </div>
@@ -81,8 +94,22 @@
     </main>
     
     <footer>
-        Design by Petter Iversen
-    </footer>
+        <div class="footer-wrapper">
+            <div class="logo">
+                <a href="index.html">SpaceX Cowboys</a>
+            </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="launches.html">Launches</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="code-by">Code by: Petter Iversen</div>
+        </div>
+      </footer>
     <script src="script.js"></script>
+    <script src="contactValid.js"></script>
 </body>
 </html>

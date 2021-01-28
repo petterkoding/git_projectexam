@@ -10,7 +10,7 @@ async function getImages() {
         images.reverse();
         console.log(images);
         for (let i = 0; i < images.length; i++){
-            if (i <= 10) {
+            if (i <= 11) {
                 const image = images[i].links.flickr.original[1];
 
                 gallery1.innerHTML +=
@@ -18,7 +18,7 @@ async function getImages() {
                     <img class="gallery-images" src="${image}" alt="SpaceX rocket launch images" onerror="this.src='images/falcon.jpg'"/>
                 </div>`;
             }
-            if (i > 32 && i < 51) {
+            if (i > 32 && i < 45) {
 
                 const image2 = images[i].links.flickr.original[2];
                 gallery2.innerHTML +=
@@ -27,7 +27,6 @@ async function getImages() {
                 </div>`;
             }
          
-            
         }
             
             
