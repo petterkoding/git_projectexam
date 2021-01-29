@@ -8,12 +8,20 @@
 
 /* global css */
 
+h1 {
+    font-size: clamp(2.5rem, 3.7vw, 60px);
+    margin: 2rem 0 1rem 0;
+}
 h2 {
-    font-size: clamp(2rem, 3.5vw, 50px);
+    font-size: clamp(2rem, 3.3vw, 48px);
     margin: 2rem 0 1rem 0;
 }
 h3 {
     font-size: clamp(1.5rem, 2.7vw, 40px);
+}
+
+h4 {
+    font-size: clamp(1.2rem, 2.3vw, 27px);
 }
 
 
@@ -25,9 +33,10 @@ h3 {
 }
 
 h1,h2,h3,h4{
-    color: #1a1a1a;
+    color: #242424;
     
 }
+
 
 /* active page */
 
@@ -192,8 +201,7 @@ header {
 .hero-heading {
     color: #fff;
     font-size: clamp(50px, 6vw, 80px);
-    
-    
+    width: 100vw;    
 }
 
 .hero img {
@@ -215,9 +223,6 @@ header {
     text-align: left;
 }
 
-
-
-
 .fa-chevron-down{
     position: absolute;
     bottom: 5%;
@@ -227,8 +232,6 @@ header {
     opacity: 0.6;
     animation: float 5s ease-out infinite;
 }
-
-
 
 /* Latest */
 
@@ -288,7 +291,7 @@ header {
 .timeline{
     margin: 0 auto;
     width: 70%;
-    padding-top: 10em;
+    padding: 8em 0;
    
 }
 
@@ -356,8 +359,8 @@ header {
     max-width: 1400px;
     height: 700px;
     margin: 0 auto;
-    margin-top: 3em;
-    margin-bottom: 4em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .center-wrapper .column-1{
     padding: 0 25px;
@@ -491,17 +494,12 @@ footer li a:hover{
 }
 
 
-
-
-
 @keyframes float{
     50%{
         transform: translateY(20px);
         opacity: 1;
     }
 }
-
-
 
 /* CONTACT PAGE */
 
@@ -628,10 +626,9 @@ label, textarea{
     align-items: center;
     width: 100%;
     height: auto;
-    background-color: rgba(211, 211, 211, 0.171);
+    background-color: #e6e6e62c;
     padding: 20px;
     margin: 20px;
-    /* display: none; */
 }
 
 .card-img{
@@ -707,15 +704,105 @@ label, textarea{
 .gallery-images{
     width: 100%;
     height: 100%;
-    object-fit: cover;  
+    object-fit: cover;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 4s ease-in-out;
 }
 
+.gallery-item1, .gallery-item2{
+    position: relative;
+    overflow: hidden;
+} 
+
+.gallery-item1 img:hover, .gallery-item2 img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.gallery-item-name{
+    position: absolute;
+    z-index: 3;
+    color: #fff;
+    bottom: 0px;
+    left: 0px;
+    padding:5px 10px;
+    display: inline-block;
+    background-color: rgb(51, 51, 51);
+}
+
+
 .galleryContainer1{
-    margin-bottom: 2em;
+    margin: 3em 0;
+
 }
 .galleryContainer2{
     margin-bottom: 5em;
 }
+
+/* apod */
+
+.apod-wrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 5em 0;
+}
+
+.picture-of-the-day{
+    width: 100%;
+    height: auto;
+    flex: 2;
+    text-align: right;
+}
+
+.apod-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-left: 30px solid orange;
+    
+}
+
+.apod-ex{
+    flex: 1;
+    padding: 10px;
+}
+.apod-ex h2{
+    display: inline-block;
+    margin-bottom: 2em;
+    border-bottom: 10px solid orange;
+    padding-bottom: 5px;
+}
+.apod-ex h3{
+    color: #3b3b3b;
+}
+
+.enter-photo-poll{
+    margin-top: 3em;
+    background-color: #e6e6e62c;
+    padding: 2em 1em;
+}
+
+.apod-congrats{
+    background-color: #e6e6e62c;
+    padding: 2em 1em;
+}
+
+.soMe-link{
+    display: inline-block;
+    padding: 12px;
+    background-color: #1DA1F2;
+    margin-top: 1em;
+    
+}
+.soMe-link .fa-twitter{
+    font-size: 2em;
+    color: white; 
+}
+
 
 
 /* @media screen and (max-width: 1024px) {
