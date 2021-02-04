@@ -30,25 +30,21 @@
         </nav>
     </header>
 
-    
-      <!-- hero -->
-    <section class="hero hero--launch">
-        <img class="launches-img" src="images/starship.jpg" alt="satellite in space orbiting Earth">
-        <div class="hero-text">
-            <h1 class="hero-heading">SpaceX Launches</h1>
-            <p>
-              View SpaceX Launch data and details for each project.
-            </p>
-
-            <a class="button" href="#">View all Launches</a>
-        </div>
-        <!-- chevron pointing down -->
-        <span><i class="fas fa-chevron-down"></i></span>
-    </section>
     <main>
-        <div class="launch-results"></div>
-      
-       
+      <section class="launch-hero">
+        <h1>SpaceX Launches</h1>
+        <div class="para">
+          <p>
+            View SpaceX Launch data and details for each project.
+          </p>
+          <span id="launch-count"></span>
+        </div>
+      </section>
+    
+      <div class="launch-results">
+        <div class="loader"><i class="fas fa-rocket"></i><i class="fas fa-burn"></i>Prepare for launch, please wait</div>
+      </div>
+      <button id="loadmore">Load More</button>
     </main>
     
     <footer>
