@@ -10,11 +10,9 @@
 
 h1 {
     font-size: clamp(2.5rem, 3.7vw, 60px);
-    /* margin: 2rem 0 1rem 0; */
 }
 h2 {
-    font-size: clamp(2rem, 3.3vw, 48px);
-    /* margin: 2rem 0 1rem 0; */
+    font-size: clamp(2.3rem, 3.3vw, 48px);
 }
 h3 {
     font-size: clamp(1.5rem, 2.7vw, 40px);
@@ -258,6 +256,12 @@ header {
     flex-basis: 40%;
 }
 
+.two-col-container h3{
+    display: inline-block;
+    border-bottom: 10px solid orange;
+    padding-bottom: 5px;
+}
+
 .column-1{
     flex:2;
 }
@@ -283,10 +287,10 @@ header {
     padding-top: 20%;
 }
 
-.rocketName{
+/* .rocketName{
     color: #000;
     font-size: 5em;
-}
+} */
 
 .launch-date{
     display: block;
@@ -414,6 +418,7 @@ iframe{
     background-image: url(images/turksat.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     height: 50vh;
     width: 100%;
     position: relative;
@@ -475,7 +480,7 @@ button:hover{
 
 
 footer{
-    clear: both;
+    /* clear: both; */
     width: 100%;
     height: 200px;
     background-color: #000;
@@ -483,8 +488,18 @@ footer{
     position: relative;
 }
 
+.footer-wrapper{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 footer .logo a{
-    font-size: 1.7em;
+    font-size: 1.3em;
     position: absolute;
     bottom: 5px;
     left: 10px;
@@ -494,16 +509,6 @@ footer .logo a{
     position: absolute;
     right: 10px;
     bottom: 5px;
-}
-
-.footer-wrapper{
-    width: 90%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
 }
 
 footer ul li{
@@ -535,7 +540,7 @@ footer li a:hover{
 
 .contact-page-hero{
     width: 100%;
-    height: 92vh;
+    height: 100%;
     display: flex;
     flex-direction: row;
     margin-bottom: 10em;
@@ -556,7 +561,7 @@ footer li a:hover{
 
 .contact-wrapper{
     max-width: 40vw;
-    height: 92vh;
+    height: 100%;
     margin: 1% 5%;
 }
 .contact-wrapper .para{
@@ -583,6 +588,7 @@ form label{
 
 fieldset{
     border: none;
+    width: 100%;
 }
 
 legend{
@@ -593,8 +599,16 @@ label, textarea{
     display: block;
 }
 
+.contact-wrapper .para{
+    width: 100%;
+}
+
 
 /* form validation styles */
+
+#submitMessage{
+    width: 400px;
+}
 
 .submitMessageSuccess{
     font-size: 1.2em;
@@ -631,7 +645,6 @@ label, textarea{
 /* Launches page */
 
 .loader{
-    /* position: relative; */
     display: block;
     margin: 0 auto;
     height: 47vh;
@@ -670,6 +683,7 @@ label, textarea{
     margin: 0 auto;
     padding: 10px 30px;
     border: 2px solid rgb(61, 61, 61);
+    background-color: rgba(231, 231, 231, 0.13);
     font-weight: 600;
     font-size: 1.2em;
     color:  rgb(61, 61, 61);
@@ -689,7 +703,7 @@ label, textarea{
     width: 90%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: auto;
     grid-row-gap: 30px;
     grid-column-gap: 20px;
@@ -729,7 +743,7 @@ label, textarea{
     padding: 10px 20px;
     border: 2px solid black;
     position: relative;
-    background-color: rgba(255, 165, 0, 0.1);
+    background-color: rgba(226, 226, 226, 0.424);
     z-index: 102;
     overflow: hidden;
     margin-top: 1em;
@@ -775,11 +789,7 @@ label, textarea{
     object-fit: cover;
 }
 
-.two-col-container h3{
-    display: inline-block;
-    border-bottom: 10px solid orange;
-    padding-bottom: 5px;
-}
+
 
 /* details page */
 
@@ -955,18 +965,14 @@ label, textarea{
       width: 100%;
       padding: 0 20px;
     }
-  
-    body {
-      overflow-x: hidden;
-    }
 
     /* nav */
   
     .nav {
         justify-content: space-between;
-      }
+    }
     
-      .nav-links {
+    .nav-links {
         position: absolute;
         right: 0px;
         height: 92vh;
@@ -980,14 +986,24 @@ label, textarea{
         transition: transform 0.3s ease-in;
         z-index: 2;
         display: none;
-      }
+    }
     
-      .nav-links li {
+    .nav-links li {
         opacity: 0;
-      }
-      .burger {
+    }
+    .burger {
         display: block;
-      }
+    }
+
+    /* hero */
+
+    .hero-text{
+        top: 20%;
+        left: 5%;
+        transform: translate(0, 0);
+        max-width: 300px;
+        text-align: left;
+    }
 
     /* latest */
     .two-col-container{
@@ -1074,18 +1090,72 @@ label, textarea{
         margin: 0;
     }
 
+    /* launch page */
+
+    .launch-hero{
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    
+    .launch-results{
+        width: 90%;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-rows: auto;
+        grid-row-gap: 20px;
+        grid-column-gap: 0px;
+        padding-bottom: 2em;
+    }
+    
+    .launch-cards{
+        margin: 0;
+        display: none;
+    }
+
     /* contact page */
     #sn8-img img{
         display: none;
     }
+
+    .contact-page-hero{
+        flex-direction: column;
+        height: 100%;
+        margin-top: 2em;
+        margin-bottom: 6em;
+    }
+
+    .contact-wrapper{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
     
     textarea{
-        max-width: 400px;
-        min-width: 400px;
+        width: 100%;
         min-height: 20vh;
         max-height: 20vh;
         font-size: 1.2em;
         padding: 7px;
+        margin-right: 0px;
+    }
+
+    #name, #subject, #email, #comments{
+        width: 100%;
+        display: inline-block;
+        text-decoration: none;
+        border: 2px solid #000;
+        font-size: clamp(16px, 2vw, 22px);
+        color: #000;
+        padding-left: 5px;
+        padding: 7px 5px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease-out
+    }
+
+    .submit-button{
+        margin-top: 0;
+        padding: 10px 30px;
     }
 
     /* footer */
