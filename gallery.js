@@ -5,9 +5,6 @@ const APOD = "https://api.nasa.gov/planetary/apod?api_key=CT08nZ3bjuw24OL46lUhge
 const picOfTheDay = document.querySelector(".picture-of-the-day");
 const apodExp = document.querySelector(".apod-ex")
 
-const isPhoto = document.querySelector(".photo")
-const isVideo = document.querySelector(".video")
-
 picOfTheDay.innerHTML = "";
 apodExp.innerHTML = "";
 
@@ -18,22 +15,35 @@ async function getAPOD() {
         console.log(imageOfTheDay);
 
         // create html
+        let copyright = imageOfTheDay.copyright;
+        let credit = `Unknown`;
+        if (copyright) {
+            credit = copyright;
+        }
+
+        let mediaType = "";
       
+        if (imageOfTheDay.media_type === "image") {
+            mediaType = `<img class="apod-image" src="${imageOfTheDay.url}" alt="${imageOfTheDay.title}"/>`;
+        }
+        if (imageOfTheDay.media_type === "video") {
+            mediaType = `<iframe width="1000px" height="700px" src="${imageOfTheDay.url}" </iframe>`;
+        }
+
         picOfTheDay.innerHTML = `<div class="apod-container">
-                                    <img class="photo" src="${imageOfTheDay.url}" alt="${imageOfTheDay.title}"/>
-                                    <iframe class="video" width="420" height="515" src="${imageOfTheDay.url}"></iframe>
-                                    <p><span>Copyright&copy; ${imageOfTheDay.copyright}</span></p>
+                                    ${mediaType}    
+                                    <p><span>Copyright&copy; ${credit}</span></p>
                                 </div>`;
         
         apodExp.innerHTML = `<h2>Astronomy picture of the Day</h2>
                             <h3>${imageOfTheDay.title}</h3>
                             <div class="para">
-                                <p>This incredible ${imageOfTheDay.media_type} was taken by ${imageOfTheDay.copyright} ${imageOfTheDay.date}</p>
+                                <p>This incredible ${imageOfTheDay.media_type} was taken by ${credit} ${imageOfTheDay.date}</p>
                             </div>
 
                             <div class="para apod-congrats">
                                 <p>Everyone at SpaceX Cowboys was blown away by this stunning and highly detailed ${imageOfTheDay.media_type}.
-                                We congratulate ${imageOfTheDay.copyright} for winning the APOD.
+                                We congratulate ${credit} for winning the APOD.
                                 </p>
                             </div>
             
@@ -41,10 +51,12 @@ async function getAPOD() {
                                 <h4>Want your own photo shown here?</h4>
                                 <div class="para">
                                     <p>Each day we select a subscribers photo to be highlighted here.
-                                    For a chance you must be following our twitter account.
-                                    Tweet your photo at us to enter!
-                                    <a class="soMe-link" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    For a chance you must be follow and tweet your photo at us to enter!
+                                    
                                     </p>
+                                    <div>
+                                        <a class="soMe-link" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    </div>
                                 </div>
                             </div>`;
 

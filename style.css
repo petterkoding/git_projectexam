@@ -243,7 +243,7 @@ header {
 
 .two-col-container{
     margin: 0 auto;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -317,16 +317,16 @@ header {
 
 .timelineContainer{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-rows: auto;
     justify-content: space-around;
     row-gap: 20px;
-    column-gap: 40px;
+    column-gap: 20px;
 }
 
 .recentLaunchTarget{
     height: 350px;
-    width: 300px;
+    width: 100%;
     padding: 10px 15px;
     margin: 20px;
     background-size: cover;
@@ -707,7 +707,7 @@ label, textarea{
     grid-template-rows: auto;
     grid-row-gap: 30px;
     grid-column-gap: 20px;
-    padding-bottom: 8em;
+    padding-bottom: 5em;
 }
 
 .launch-cards{
@@ -837,7 +837,7 @@ label, textarea{
 .gallery-wrapper{
     margin: 0 auto;
     max-width: 120em;
-    padding: 3em 0;
+    padding: 3em 20px;
 }
 
 .gallery-grid{
@@ -849,8 +849,9 @@ label, textarea{
 }
 
 .gallery-images{
+    display: block;
     width: 100%;
-    height: 100%;
+    height: 500px;
     object-fit: cover;
     opacity: 1;
     transform: scale(1);
@@ -874,6 +875,7 @@ label, textarea{
     color: #fff;
     bottom: 0px;
     left: 0px;
+    width: 100%;
     padding:5px 10px;
     display: inline-block;
     background-color: rgb(51, 51, 51);
@@ -882,7 +884,6 @@ label, textarea{
 
 .galleryContainer1{
     margin: 3em 0;
-
 }
 .galleryContainer2{
     margin-bottom: 5em;
@@ -892,27 +893,28 @@ label, textarea{
 
 .apod-wrapper{
     width: 100%;
-    height: auto;
+    height: 70vh;
     display: flex;
     flex-direction: row;
-    margin: 5em 0;
+    justify-content: space-between;
+    margin-bottom: 5em;
 }
 
 .picture-of-the-day{
     width: 100%;
-    height: auto;
+    height: 700px;
     flex: 2;
-    text-align: right;
+    text-align: left;
+    margin-left: 5em;
 }
 
-.apod-container{
-    border-left: 30px solid orange;
-}
 
-.apod-container img{
+.picture-of-the-day img{
+    display: block;
     width: 100%;
-    height: 100%;
+    height: 60vh;
     object-fit: cover;
+    border-left: 30px solid orange;
 }
 
 .apod-ex{
@@ -921,9 +923,8 @@ label, textarea{
 }
 .apod-ex h2{
     display: inline-block;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     border-bottom: 10px solid orange;
-    padding-bottom: 5px;
 }
 .apod-ex h3{
     color: #3b3b3b;
@@ -954,11 +955,27 @@ label, textarea{
 
 
 
-/* @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .nav-links {
       width: 60%;
     }
-} */
+
+    /* gallery */
+    .apod-wrapper{
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .picture-of-the-day{
+        width: 100%;
+        height: 700px;
+        margin-left: 0em;
+    }   
+    
+    .picture-of-the-day img{
+        height: 100%;
+    }
+}
 
 @media screen and (max-width: 960px) {
     main {
@@ -1037,10 +1054,6 @@ label, textarea{
         width: 100%;
         height: auto;
         margin: 3em 0;
-    }
-
-    .two-col-container{
-        height: auto;
     }
 
     /* recent timeline */

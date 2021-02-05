@@ -37,7 +37,9 @@ async function getPastLaunches() {
         }
 
         // count for each rocket
-        let currentItems = 8;
+      let currentItems = 8;
+      
+      launchCount.innerHTML = `Showing ${currentItems} rocket launches`;
 
         loadmore.addEventListener("click", (e) => {
             const items = document.querySelectorAll(".launch-cards")
@@ -47,10 +49,12 @@ async function getPastLaunches() {
                     items[i].style.display = "block";
                 }
             }
-            currentItems += 8;
-
+          currentItems += 8;
+          launchCount.innerHTML = `Showing ${currentItems} rocket launches`;
             if (currentItems >= items.length) {
-                loadmore.style.display = "none";
+              loadmore.style.display = "none";
+              let difference = currentItems - rockets.length;
+              launchCount.innerHTML = `Showing ${currentItems-difference} rocket launches`;
             }
         });
     
