@@ -12,7 +12,7 @@ h1 {
     font-size: clamp(2.5rem, 3.7vw, 60px);
 }
 h2 {
-    font-size: clamp(2.3rem, 3.3vw, 48px);
+    font-size: clamp(2rem, 3.3vw, 48px);
 }
 h3 {
     font-size: clamp(1.5rem, 2.7vw, 40px);
@@ -27,6 +27,8 @@ h4 {
     font-size: clamp(19px, 2vw, 22px);
     padding-bottom: 1rem;
     max-width: 700px;
+}
+.para p{
     color: #363636;
 }
 
@@ -35,7 +37,7 @@ h1,h2,h3,h4{
     
 }
 
-body {
+html, body {
     overflow-x: hidden;
 }
 
@@ -207,7 +209,7 @@ header {
 .hero-heading {
     color: #fff;
     font-size: clamp(50px, 6vw, 80px);
-    width: 100vw;    
+    width: 900px;    
 }
 
 .hero img {
@@ -234,9 +236,16 @@ header {
     bottom: 5%;
     left: 50%;
     font-size: 4em;
-    color: #fff;
+    color: rgb(255, 255, 255);
     opacity: 0.6;
     animation: float 5s ease-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform: translateY(20px);
+        opacity: 1;
+    }
 }
 
 /* Latest */
@@ -287,11 +296,6 @@ header {
     padding-top: 20%;
 }
 
-/* .rocketName{
-    color: #000;
-    font-size: 5em;
-} */
-
 .launch-date{
     display: block;
     font-size: 1.4em;
@@ -302,7 +306,7 @@ header {
 
 .upcoming-img{
     width: 100%;
-    min-width: 500px;
+    min-width: 600px;
     height: auto;
 }
 
@@ -312,6 +316,11 @@ header {
     margin: 0 auto;
     width: 70%;
     padding: 8em 0;
+   
+}
+.timeline h2{
+    border-bottom: 10px solid orange;
+    display: inline-block;
    
 }
 
@@ -348,7 +357,7 @@ header {
    height: 80px;
    margin-left: -15px;
    margin-top: -10px;
-   padding-left: 5px;
+   padding: 5px 0 5px 20px;
 }
 
 .recentLaunchTarget:hover{
@@ -407,6 +416,10 @@ header {
     margin: 0 auto;
     width: 50%;
     padding: 10em 0;
+}
+.center h4{
+    display: inline-block;
+    border-bottom: 10px solid orange;
 }
 
 iframe{
@@ -529,12 +542,7 @@ footer li a:hover{
 }
 
 
-@keyframes float{
-    50%{
-        transform: translateY(20px);
-        opacity: 1;
-    }
-}
+
 
 /* CONTACT PAGE */
 
@@ -557,6 +565,7 @@ footer li a:hover{
 .contact-heading{
     font-size: clamp(40px, 5vw, 60px);
     margin-bottom: 10px;
+    width: 300px;
 }
 
 .contact-wrapper{
@@ -567,12 +576,15 @@ footer li a:hover{
 .contact-wrapper .para{
     margin: 30px 0;
 }
-.contact-wrapper .fas, .contact-wrapper .far{
-    font-size: clamp(30px, 2vw, 22px);
+
+.contact-wrapper .fas, .contact-wrapper .far, .contact-wrapper .fab{
     padding-right: 10px;
+    color: #000;
+    font-size: 1.2em;
+    
 }
 
-textarea{
+#comments{
     max-width: 20vw;
     min-width: 400px;
     min-height: 20vh;
@@ -636,8 +648,8 @@ label, textarea{
 
 #submit-btn:disabled{
     background-color: lightgray;
-    border: 1px solid grey;
-    color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(128, 128, 128, 0.191);
+    color: rgba(0, 0, 0, 0.171);
     cursor: default;
 }
 
@@ -837,7 +849,7 @@ label, textarea{
 .gallery-wrapper{
     margin: 0 auto;
     max-width: 120em;
-    padding: 3em 20px;
+    padding: 1.2em 20px;
 }
 
 .gallery-grid{
@@ -904,7 +916,7 @@ label, textarea{
     width: 100%;
     height: 700px;
     flex: 2;
-    text-align: left;
+    text-align: right;
     margin-left: 5em;
 }
 
@@ -916,29 +928,49 @@ label, textarea{
     object-fit: cover;
     border-left: 30px solid orange;
 }
+.picture-of-the-day iframe{
+    display: block;
+    width: 100%;
+    height: 60vh;
+    border-left: 30px solid orange;
+}
 
 .apod-ex{
     flex: 1;
-    padding: 10px;
 }
-.apod-ex h2{
+.apod-title h2{
     display: inline-block;
     margin-bottom: 1em;
     border-bottom: 10px solid orange;
 }
+
 .apod-ex h3{
     color: #3b3b3b;
 }
 
 .enter-photo-poll{
     margin-top: 3em;
-    background-color: #e6e6e62c;
+    background-color: #c3c3c32c;
     padding: 2em 1em;
 }
 
 .apod-congrats{
     background-color: #e6e6e62c;
     padding: 2em 1em;
+    border-left: 30px solid rgb(228, 228, 228);
+}
+
+
+.apod-congrats p::before::first-letter{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    height: 8px;
+    width: 100%;
+    background-color: chocolate;
+    
 }
 
 .soMe-link{
@@ -955,38 +987,81 @@ label, textarea{
 
 
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1124px) {
     .nav-links {
       width: 60%;
     }
 
+    /* hero */
+    .hero-text{
+        top: 12%;
+        left: 5%;
+        transform: translate(0, 0);
+        max-width: 300px;
+        text-align: left;
+    }
+    .hero-heading {
+        color: #fff;
+        font-size: clamp(50px, 6vw, 80px);
+        width: 90vw;    
+    }
+
     /* gallery */
+
+    .gallery-grid{
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
     .apod-wrapper{
-        flex-direction: column;
+        flex-direction: column-reverse;
         height: 100%;
+    }
+
+    .apod-title h2{
+        font-size: 1.7em;
     }
     
     .picture-of-the-day{
         width: 100%;
-        height: 700px;
         margin-left: 0em;
+        /* order: -1; */
     }   
     
     .picture-of-the-day img{
         height: 100%;
     }
+    .picture-of-the-day iframe{
+        height: 100%;
+    }
 }
 
 @media screen and (max-width: 960px) {
-    main {
+     main {
       width: 100%;
-      padding: 0 20px;
+    }
+
+    .mobile-margin{
+        padding-left: 20px;
+    }
+
+    .para-margin{
+        margin: 0 20px;
+    }
+
+    .button{
+        margin-left: 20px;
     }
 
     /* nav */
   
-    .nav {
+    nav {
         justify-content: space-between;
+    }
+
+    nav .logo a{
+        font-size: 1.3em;
+        letter-spacing: 1px;
+        margin-left: 10px;
     }
     
     .nav-links {
@@ -1010,16 +1085,7 @@ label, textarea{
     }
     .burger {
         display: block;
-    }
-
-    /* hero */
-
-    .hero-text{
-        top: 20%;
-        left: 5%;
-        transform: translate(0, 0);
-        max-width: 300px;
-        text-align: left;
+        margin-right: 20px;
     }
 
     /* latest */
@@ -1045,9 +1111,10 @@ label, textarea{
 
     /* upcoming */
     .upcoming-img{
+        display: block;
+        margin: 0 auto;
         width: 100%;
-        min-width: 360px;
-        height: auto,
+        min-width: 300px;
     }
 
     .center-wrapper{
@@ -1061,6 +1128,11 @@ label, textarea{
         width: 100%;
         padding: 3em 0;       
     }
+
+    .timelineContainer{
+        row-gap: 7px;
+    }
+    
         
     .recentLaunchTarget{
         height: 40vh;
@@ -1077,8 +1149,9 @@ label, textarea{
 
     .newsletter{
         height: 40vh;
-        width: calc(100% + 40px);
-        margin-left: -20px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
     .sub-div{
@@ -1106,14 +1179,14 @@ label, textarea{
     /* launch page */
 
     .launch-hero{
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         padding: 20px;
     }
 
     
     .launch-results{
-        width: 90%;
+        width: 100%;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-template-rows: auto;
         grid-row-gap: 20px;
@@ -1133,6 +1206,7 @@ label, textarea{
 
     .contact-page-hero{
         flex-direction: column;
+        width: 100%;
         height: 100%;
         margin-top: 2em;
         margin-bottom: 6em;
@@ -1142,19 +1216,21 @@ label, textarea{
         width: 100%;
         height: 100%;
         margin: 0;
+        margin-left: 20px;
+    }
+    .contact-wrapper .para{
+        width: 90vw;
     }
     
-    textarea{
-        width: 100%;
-        min-height: 20vh;
-        max-height: 20vh;
-        font-size: 1.2em;
-        padding: 7px;
+    #comments{
+        min-width: 360px;
+        max-width: 360px;
+        padding: 0;
         margin-right: 0px;
     }
 
     #name, #subject, #email, #comments{
-        width: 100%;
+        width: 360px;
         display: inline-block;
         text-decoration: none;
         border: 2px solid #000;
@@ -1168,10 +1244,14 @@ label, textarea{
 
     .submit-button{
         margin-top: 0;
-        padding: 10px 30px;
+        font-size: 1.2em;
+        padding: 7px 20px;
     }
 
     /* footer */
+    footer{
+        height: 130px;
+    }
 
     .footer-wrapper{
         width: 100%;

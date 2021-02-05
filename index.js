@@ -16,10 +16,10 @@ async function getLatestLaunch(){
         latestDetails.classList.add("latest-info")
         latestImg.innerHTML = `<img class="two-col-img" src="${result.links.flickr.original[0]}" alt="Image of ${result.name}" onerror="this.src='images/rocket.jpg'">`;
         latestDetails.innerHTML = `<div class="two-col-info">
-                                        <h3>Latest</h3>
-                                        <h2 class="rocketName">${result.name}</h2>
-                                        <span class="launch-date">${result.date_local}</span>
-                                        <div class="para">
+                                        <h3 class="mobile-margin">Latest</h3>
+                                        <h2 class="rocketName mobile-margin">${result.name}</h2>
+                                        <span class="launch-date mobile-margin">${result.date_local}</span>
+                                        <div class="para para-margin">
                                             <p class="details">${result.details}</p>
                                         </div>
                                         <a class="button dark" href="${result.links.article}" target="_blank">Read more</a>                    
@@ -53,12 +53,12 @@ async function getUpcomingLaunch(){
     try{
         const response = await fetch(upcomingLaunch);
         const result = await response.json();
-        // console.log(result)
+        console.log(result)
         upcomingImg.innerHTML = `<img class="upcoming-img" src="${result[0].links.patch.small}" alt="patch emblem of ${result[0].name}" onerror="this.src='images/rocket.jpg'"/>`
         upcomingContainer.innerHTML = `<div>
-                                            <h2 class="rocketName">${result[0].name}</h2>
-                                            <span class="launch-date">${result[0].date_local}</span>
-                                            <div class="para">
+                                            <h2 class="rocketName mobile-margin">${result[0].name}</h2>
+                                            <span class="launch-date mobile-margin">${result[0].date_local}</span>
+                                            <div class="para para-margin">
                                                 <p class="details">${result[0].details}</p>
                                             </div>                  
                                         </div>`;
@@ -73,7 +73,7 @@ async function getUpcomingLaunch(){
 getUpcomingLaunch();
 
 
-// get past 5 launches SpaceX
+// get past 4 launches SpaceX
 const pastLaunches = "https://api.spacexdata.com/v4/launches/past";
 
 const timelineContainer = document.querySelector(".timelineContainer")
@@ -177,7 +177,7 @@ async function getIssLocation() {
         const latitude = location.iss_position.latitude;
         const longitude = location.iss_position.longitude;
 
-        issContainer.innerHTML = `Latitude: ${latitude} Longitude: ${longitude} <iframe src="https://maps.google.com/maps?q=${latitude}, ${longitude}&z=15&output=embed" width="960" height="570" frameborder="0" style="border:0"></iframe>`;
+        issContainer.innerHTML = `<span class="mobile-margin">Latitude: ${latitude} Longitude: ${longitude} </span><iframe src="https://maps.google.com/maps?q=${latitude}, ${longitude}&z=15&output=embed" width="960" height="570" frameborder="0" style="border:0"></iframe>`;
 
     } catch (error) {
         console.log(error)

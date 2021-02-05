@@ -4,9 +4,11 @@ const APOD = "https://api.nasa.gov/planetary/apod?api_key=CT08nZ3bjuw24OL46lUhge
 
 const picOfTheDay = document.querySelector(".picture-of-the-day");
 const apodExp = document.querySelector(".apod-ex")
+const apodTitle = document.querySelector(".apod-title")
 
 picOfTheDay.innerHTML = "";
 apodExp.innerHTML = "";
+apodTitle.innerHTML = "";
 
 async function getAPOD() {
     try {
@@ -34,16 +36,18 @@ async function getAPOD() {
                                     ${mediaType}    
                                     <p><span>Copyright&copy; ${credit}</span></p>
                                 </div>`;
+        apodTitle.innerHTML = `<div>
+                                <h2>Astronomy picture of the Day</h2>
+                                <h3>${imageOfTheDay.title}</h3>
+                                </div>`;
         
-        apodExp.innerHTML = `<h2>Astronomy picture of the Day</h2>
-                            <h3>${imageOfTheDay.title}</h3>
-                            <div class="para">
+        apodExp.innerHTML = `<div class="para">
                                 <p>This incredible ${imageOfTheDay.media_type} was taken by ${credit} ${imageOfTheDay.date}</p>
                             </div>
 
                             <div class="para apod-congrats">
                                 <p>Everyone at SpaceX Cowboys was blown away by this stunning and highly detailed ${imageOfTheDay.media_type}.
-                                We congratulate ${credit} for winning the APOD.
+                                Congratulations for winning the APOD.
                                 </p>
                             </div>
             
