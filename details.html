@@ -12,15 +12,15 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="nav">
           <div class="logo">
               <a href="index.html">SpaceX Cowboys</a>
           </div>
           <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="launches.html">Launches</a></li>
+            <li><a class="active-page" href="launches.html">Launches</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a class="active-page" href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
           <div class="burger">
             <div class="line1"></div>
@@ -30,6 +30,9 @@
         </nav>
     </header>
     <main>
+
+      <div class="return-to-last-page"></div>
+
       <section class="two-col-container">
         <div class="column-1">
           <div class="detail-img-container"></div>
@@ -41,42 +44,38 @@
         
       </section>
 
-      <!-- read more -->
-      <section class="center-wrapper">
-        <div class="two-col-container">
-          <div class="column-1">
-            <!-- <h3>Aim high sky is the limit</h3> -->
-            <div class="read-more"></div>
-          </div>
+      <section class="center">
+        <div class="rocket-details"></div>
 
-          <div class="column-2">
-            <img src="images/countdown.gif" alt="Falcon 9 lift off gif animation"/>
-          </div>
-        </div>        
+      </section>
+
+      <!-- read more -->
+      <section class="center">
+        <div class="read-more"></div>       
       </section>
 
       <!-- gallery -->
       <aside>
-        <div class="details-gallery"></div>
+        <div class="details-bottom-img"></div>
       </aside>
 
     </main>
 
     <footer>
-        <div class="footer-wrapper">
-            <div class="logo">
-                <a href="index.html">SpaceX Cowboys</a>
-            </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="launches.html">Launches</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="code-by">Code by: Petter Iversen</div>
+      <div class="footer-wrapper">
+        <div class="logo">
+          <a href="index.html">SpaceX Cowboys</a>
         </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="https://www.spacex.com">Official site</a></li>
+            <li><a href="https://www.flickr.com/photos/spacex">Flickr</a></li>
+            <li><a href="https://www.youtube.com/spacex">Youtube</a></li>
+            <li><a href="https://twitter.com/spacex">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="code-by">Code by: Petter Iversen</div>
+      </div>
     </footer>
     <script src="script.js"></script>
     <script src="details.js"></script>

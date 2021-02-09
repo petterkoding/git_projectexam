@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="nav">
           <div class="logo">
               <a href="index.html">SpaceX Cowboys</a>
           </div>
@@ -62,32 +62,35 @@
                         <!-- name -->
                         <div>
                             <label for="name">Your Name</label>
-                            <input class="black" type="text" id="name" minlength="2" maxlength="15" required>
                             <div id="nameError">
                                 <p>Name must be atleast 2 characters</p>
                             </div>
+                            <input class="black" type="text" id="name" minlength="2" maxlength="15" required>
                         </div>
 
                         <!-- email -->
                         <div>
                             <label for="email">Your Email</label>
-                            <input class="black" type="email" id="email" required>
                             <div id="emailError">
                                 <p>Email must be valid</p>
                             </div>
+                            <input class="black" type="email" id="email" required>
                         </div>
                         <!-- subject -->
                         <div>
                             <label for="subject">Subject</label>
-                            <input class="black" type="text" id="subject" minlength="7" maxlength="20" required>
                             <div id="subjectError">
                                 <p>Subject must be atleast 7 characters</p>
                             </div>
+                            <input class="black" type="text" id="subject" minlength="7" maxlength="20" required>
                         </div>
 
                         <!-- comments -->
                         <div>
                             <label for="comments">Comments</label>
+                            <div id="commentsError">
+                                <p>Field can't be empty</p>
+                            </div>
                             <textarea name="comments" id="comments" ></textarea>
                         </div>
                         <button type="submit" class="submit-button" id="submit-btn" disabled>Submit</button>
@@ -99,15 +102,15 @@
     
     <footer>
         <div class="footer-wrapper">
-            <div class="logo">
-                <a href="index.html">SpaceX Cowboys</a>
-            </div>
+          <div class="logo">
+            <a href="index.html">SpaceX Cowboys</a>
+          </div>
           <div class="footer-links">
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="launches.html">Launches</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="https://www.spacex.com">Official site</a></li>
+              <li><a href="https://www.flickr.com/photos/spacex">Flickr</a></li>
+              <li><a href="https://www.youtube.com/spacex">Youtube</a></li>
+              <li><a href="https://twitter.com/spacex">Twitter</a></li>
             </ul>
           </div>
           <div class="code-by">Code by: Petter Iversen</div>

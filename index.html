@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Homepage of Space Cowboys</title>
+    <title>SpaceX Cowboys | rocket launches data</title>
 </head>
 <body>
   <header>
-    <nav>
+    <nav id="nav">
       <div class="logo">
         <a href="index.html">SpaceX Cowboys</a>
       </div>
@@ -33,12 +33,19 @@
         <img src="images/orbit.jpg" alt="satellite in space orbiting Earth">
         
         <div class="hero-text">
-          <h1 class="hero-heading">Welcome to Space Cowboys</h1>
-          <p>
-          Space Cowboys is a SpaceX microsite about rocket launches made for rocket fans.
-          We focus on raising awareness about space program activity around the world and showing you the latest data.
-          </p>
-          <a class="button" href="launches.html">View all Launches</a>
+          <span class="hero-span">Welcome to</span>
+          <h1 class="hero-heading">SpaceX Cowboys</h1>
+          <div class="para">
+            <p>
+              SpaceX Cowboys is a SpaceX microsite about rocket launches made for rocket fans.
+              </p>
+              <p>
+              We focus on raising awareness about space program activity around the world and showing you the latest data.
+              </p>
+          </div>
+         
+          <a class="button" href="launches.html">Past Launches</a>
+          <a class="button" href="#recent">Recent Launches</a>
         </div>
 
 
@@ -49,10 +56,22 @@
         <!-- latest -->
         <section class="two-col-container">
           <div class="column-1">
-            <div class="latest-img"></div>
+            <div class="latest-img">
+              <div class="loader">Loading...
+                <span id="dot1"></span>
+                <span id="dot2"></span>
+                <span id="dot3"></span>
+              </div>
+            </div>
           </div>
           <div class="column-2">
-            <div class="latest-details"></div>
+            <div class="latest-details">
+              <div class="loader">Loading...
+                <span id="dot1"></span>
+                <span id="dot2"></span>
+                <span id="dot3"></span>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -61,19 +80,37 @@
           <div class="two-col-container">
             <div class="column-1">
               <h3 class="mobile-margin">Upcoming Launch</h3>
-              <div class="upcomingContainer"></div>
+              <p id="countdown">Time to next launch: <span id="countdown-time"></span></p>
+              <div class="upcomingContainer">
+                <div class="loader">Loading...
+                  <span id="dot1"></span>
+                  <span id="dot2"></span>
+                  <span id="dot3"></span>
+                </div>
+              </div>
             </div>
             <div class="column-2">
-              <div class="upcomingImgContainer"></div>
+              <div class="upcomingImgContainer">
+                <div class="loader">Loading...
+                  <span id="dot1"></span>
+                  <span id="dot2"></span>
+                  <span id="dot3"></span>
+                </div>
+              </div>
             </div>
           </div>        
         </section>
        
         <!-- timeline -->
-        <section class="timeline">
+        <section class="timeline" id="recent">
           <h2 class="mobile-margin">Recent Launches</h2>
-          <div class="timelineContainer"></div>
-          <div class="recentRocketNames"></div>
+          <div class="timelineContainer">
+            <div class="loader">Loading...
+              <span id="dot1"></span>
+              <span id="dot2"></span>
+              <span id="dot3"></span>
+            </div>
+          </div>
         </section>
 
 
@@ -90,15 +127,33 @@
             </div>    
 
             <div class="column-2">
-              <div class="currentPeopleInSpace mobile-margin"></div>
-              <div class="peopleInSpace mobile-margin"></div>
+              <div class="currentPeopleInSpace mobile-margin">
+                <div class="loader">Loading...
+                  <span id="dot1"></span>
+                  <span id="dot2"></span>
+                  <span id="dot3"></span>
+                </div>
+              </div>
+              <div class="peopleInSpaceNames mobile-margin">
+                <div class="loader">Loading...
+                  <span id="dot1"></span>
+                  <span id="dot2"></span>
+                  <span id="dot3"></span>
+                </div>
+              </div>
             </div>
           </section>
         </div>
 
         <aside class="center">
           <h4 class="mobile-margin">Location of the International Space Station</h4>
-          <div class="issLocation"></div>
+          <div class="issLocation">
+            <div class="loader">Loading...
+              <span id="dot1"></span>
+              <span id="dot2"></span>
+              <span id="dot3"></span>
+            </div>
+          </div>
         </aside>
 
         <section class="newsletter">
@@ -120,10 +175,10 @@
           </div>
           <div class="footer-links">
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="launches.html">Launches</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="https://www.spacex.com">Official site</a></li>
+              <li><a href="https://www.flickr.com/photos/spacex">Flickr</a></li>
+              <li><a href="https://www.youtube.com/spacex">Youtube</a></li>
+              <li><a href="https://twitter.com/spacex">Twitter</a></li>
             </ul>
           </div>
           <div class="code-by">Code by: Petter Iversen</div>

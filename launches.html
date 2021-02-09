@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-        <nav>
+        <nav id="nav">
           <div class="logo">
             <a href="index.html">SpaceX Cowboys</a>
           </div>
@@ -35,16 +35,33 @@
         <h1>SpaceX Launches</h1>
         <div class="para">
           <p>
-            View SpaceX Launch data and details for each project.
+            View past SpaceX Launch data and rocket details for each launch.
           </p>
           <span id="launch-count"></span>
+        </div>
+        <div class="searchbar">
+          <div class="search-message"></div>
+          <input autofocus type="search" id="search">
+          <button  id="search-btn">Search</button>
         </div>
       </section>
     
       <div class="launch-results">
-        <div class="loader"><i class="fas fa-rocket"></i><i class="fas fa-burn"></i>Prepare for launch, please wait</div>
+        <div class="loader">Loading...
+          <span id="dot1"></span>
+          <span id="dot2"></span>
+          <span id="dot3"></span>
+        </div>
       </div>
       <button id="loadmore">Load More</button>
+
+      <div class="go-to-top">
+        <a href="#nav">
+          <i class="fas fa-space-shuttle"></i>
+        <i class="fas fa-burn"></i>
+        </a>
+        <span>to top</span>
+    </div>
     </main>
     
     <footer>
@@ -54,16 +71,15 @@
         </div>
         <div class="footer-links">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="launches.html">Launches</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://www.spacex.com">Official site</a></li>
+            <li><a href="https://www.flickr.com/photos/spacex">Flickr</a></li>
+            <li><a href="https://www.youtube.com/spacex">Youtube</a></li>
+            <li><a href="https://twitter.com/spacex">Twitter</a></li>
           </ul>
         </div>
         <div class="code-by">Code by: Petter Iversen</div>
       </div>
     </footer>
-
     <script src="script.js"></script>
     <script src="launches.js"></script>
   </body>

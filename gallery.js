@@ -6,15 +6,17 @@ const picOfTheDay = document.querySelector(".picture-of-the-day");
 const apodExp = document.querySelector(".apod-ex")
 const apodTitle = document.querySelector(".apod-title")
 
-picOfTheDay.innerHTML = "";
-apodExp.innerHTML = "";
-apodTitle.innerHTML = "";
+
 
 async function getAPOD() {
     try {
         const response = await fetch(APOD);
         const imageOfTheDay = await response.json();
         console.log(imageOfTheDay);
+
+        picOfTheDay.innerHTML = "";
+        apodExp.innerHTML = "";
+        apodTitle.innerHTML = "";
 
         // create html
         let copyright = imageOfTheDay.copyright;

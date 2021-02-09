@@ -4,15 +4,37 @@ const latestLaunch = "https://api.spacexdata.com/v4/launches/latest";
 const latestDetails = document.querySelector(".latest-details")
 const latestImg = document.querySelector(".latest-img")
 
-latestDetails.innerHTML = "";
+
 
 
 async function getLatestLaunch(){
     try{
         const response = await fetch(latestLaunch);
         const result = await response.json();
-
         // console.log(result)
+
+        latestDetails.innerHTML = "";
+
+        let readMoreLink = "";
+        let wikipediaLink = `<a class="button dark" href="https://en.wikipedia.org/wiki/SpaceX" target="_blank">Read more</a>`;
+        let articleLink = `<a class="button dark" href="${result.links.article}" target="_blank">Read more</a>`;
+        if (!result.links.article) {
+          // if theres no article, use wikipedia as url
+          readMoreLink = wikipediaLink;
+        } else {
+          readMoreLink = articleLink;
+        }
+        // video
+        let watch = "";
+        let youtubeLink = `<a class="button dark" href="https://www.youtube.com/c/SpaceX/videos" target="_blank">Watch</a>`;
+        let webcastLink = `<a class="button dark" href="${result.links.webcast}" target="_blank">Watch</a>`;
+        if (!result.links.webcast) {
+          // if theres no webcast, use youtube as url
+          watch = youtubeLink;
+        } else {
+          watch = webcastLink;
+        }
+
         latestDetails.classList.add("latest-info")
         latestImg.innerHTML = `<img class="two-col-img" src="${result.links.flickr.original[0]}" alt="Image of ${result.name}" onerror="this.src='images/rocket.jpg'">`;
         latestDetails.innerHTML = `<div class="two-col-info">
@@ -22,8 +44,8 @@ async function getLatestLaunch(){
                                         <div class="para para-margin">
                                             <p class="details">${result.details}</p>
                                         </div>
-                                        <a class="button dark" href="${result.links.article}" target="_blank">Read more</a>                    
-                                        <a class="button dark" href="${result.links.webcast}" target="_blank">Watch stream</a>                    
+                                        ${readMoreLink}                    
+                                       ${watch}                    
                                     </div>`;
 
     } catch (e) {
@@ -45,24 +67,66 @@ const upcomingLaunch = "https://api.spacexdata.com/v4/launches/upcoming/";
 const upcomingContainer = document.querySelector(".upcomingContainer")
 const upcomingImg = document.querySelector(".upcomingImgContainer")
 
-upcomingContainer.innerHTML = "";
-upcomingImg.innerHTML = "";
 
 
-async function getUpcomingLaunch(){
-    try{
+
+async function getUpcomingLaunch() {
+    try {
         const response = await fetch(upcomingLaunch);
         const result = await response.json();
         console.log(result)
-        upcomingImg.innerHTML = `<img class="upcoming-img" src="${result[0].links.patch.small}" alt="patch emblem of ${result[0].name}" onerror="this.src='images/rocket.jpg'"/>`
+
+        upcomingContainer.innerHTML = "";
+        upcomingImg.innerHTML = "";
+
+        let launchDetails = result[0].details;
+        let noDetails = `We're sorry. Looks like the launch details are missing.`;
+        if (!launchDetails) {
+            launchDetails = noDetails;
+        }
+
+        upcomingImg.innerHTML = `<a href="details.html?id=${result[0].id}">
+                                    <img class="upcoming-img" src="${result[0].links.patch.small}" alt="patch emblem of ${result[0].name}" onerror="this.src='images/rocket.jpg'"/>
+                                </a>`;
+                                
+        
+        
         upcomingContainer.innerHTML = `<div>
                                             <h2 class="rocketName mobile-margin">${result[0].name}</h2>
                                             <span class="launch-date mobile-margin">${result[0].date_local}</span>
                                             <div class="para para-margin">
-                                                <p class="details">${result[0].details}</p>
-                                            </div>                  
+                                                <p class="details">${launchDetails}</p>
+                                            </div>                
                                         </div>`;
 
+        // countdown
+        const countdown = document.querySelector("#countdown-time");
+        countdown.innerHTML = "";
+
+        let localDate = result[0].date_utc;
+ 
+        var countDownDate = new Date(localDate).getTime();
+
+        var x = setInterval(function () {
+            let now = new Date().getTime();
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / (1000));
+            
+            countdown.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                countdown.innerHTML = `expired`;
+            }
+        }, 1000);
+        
+        
+       
     } catch (e) {
         console.log(e)
     } finally {
@@ -129,7 +193,7 @@ getPastLaunches();
 // fetch people in space
 const url = "http://api.open-notify.org/astros.json";
 
-const pplContainer = document.querySelector(".peopleInSpace")
+const pplContainer = document.querySelector(".peopleInSpaceNames")
 
 const peopleInSpace = document.querySelector(".currentPeopleInSpace")
 
