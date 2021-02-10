@@ -37,10 +37,65 @@ h1,h2,h3,h4{
 html, body {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    background-color: #fff;
 }
 
 main{
     min-height: calc(100vh - 200px);
+}
+
+/* toggle nightmode */
+.nightmodeContainer{
+    position: absolute;
+    right: 40px;
+    top: 200px;
+}
+.switchBG{
+    position: relative;
+    width: 80px;
+    height: 35px;
+    background: rgb(206, 206, 206);
+    border-radius: 30px;
+}
+.nightmode{
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 30px;
+    font-size:1.3em;
+    color: rgb(129, 129, 129);
+    margin: 0 3px;
+    transform: translateX(0%);
+    transition: all 0.6s ease-out;
+    
+}
+.nightmode:hover{
+    background-color: rgb(3, 3, 3);
+    color: rgb(243, 196, 109);
+    
+}
+
+.switchOn{
+    transform: translateX(100%);
+    color: rgb(243, 196, 109);
+    background-color: rgb(7, 7, 7);
+}
+
+/* toggle to */
+.darkmode, .darkmode h1, .darkmode h2,
+.darkmode h3, .darkmode h4,
+.darkmode p, .darkmode span,
+.darkmode #loadmore{
+    background-color: rgb(20, 20, 20);
+    color: #fff;
+    transition: all 0.3s ease-out;
+}
+
+.moonLight{
+    color: rgb(238, 202, 83);
+    background-color: rgb(5, 23, 56);
 }
 
 
@@ -255,7 +310,7 @@ header {
 
 .fa-chevron-down{
     position: absolute;
-    bottom: 20%;
+    bottom: 12%;
     left: 50%;
     transform: translate(-50%, 0);
     font-size: 4em;
@@ -345,11 +400,12 @@ header {
     margin: 0 auto;
     width: 100%;
     padding: 8em 0em;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 .timeline h2{
     border-bottom: 10px solid orange;
     display: inline-block;
+    padding-left: 120px;
    
 }
 
@@ -361,20 +417,19 @@ header {
 } 
 
 .recentLaunchTarget{
-    height: 400px;
+    height: 40vh;
     min-width: calc(100vw / 3.1);
     padding: 10px 15px;
-    margin: 20px 0;
+    margin: 20px 0px;
+    margin-right: 7px;
     background-size: cover;
     transition: all 0.4s ease-out;
-    position: relative;
     position: relative;
     text-decoration: none;
     color: #000;
     background-position: bottom;
 }
 .recentLaunchTarget:hover{
-    min-width: calc(100vw / 3.5);
     filter: grayscale(0.8);
     cursor: pointer;
 }
@@ -746,6 +801,20 @@ label, textarea{
    border: 2px solid darkorange;
 }
 
+.rocketCounter{
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+#launch-count span:nth-child(1){
+background-color: rgb(44, 60, 207);
+padding: 2px 5px;
+color: white;
+}
+
 .launch-hero{
     width: 90%;
     margin: 0 auto;
@@ -796,32 +865,35 @@ label, textarea{
 
 /* searchfield */
 .searchbar{
-    height: 60px;
+    height: auto;
+    margin: 2em 0;
 }
 
 #search{
     background-color: rgb(241, 241, 241);
-    height: 100%;
+    height: 70px;
+    padding: 0;
+    margin: 0;
     border-bottom: 3px solid rgb(231, 231, 231);
 }
 #search:focus{
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(243, 243, 243);
     border-bottom: 3px solid orange;
 }
 
 #search-btn{
-    height: 100%;
-    width: 70px;
+    height: 70px;
+    width: 62px;
     font-size: 1em;
     border-radius: 0;
     border: none;
-    background-color: rgb(83, 83, 83);
+    background-color: rgb(95, 95, 95);
+    border-bottom: 3px solid rgb(231, 231, 231);
     color: #fff;
     transition: all 0.3s ease;
 }
 #search-btn:hover{
-    background-color: rgb(131, 131, 131);
-    color: #fff;
+    background-color: rgb(112, 112, 112);
 }
 
 .item-count{
@@ -1129,10 +1201,6 @@ label, textarea{
         height: 35vh; 
         min-width: calc(100vw / 3.2);   
     }
-    .recentLaunchTarget:hover{
-        min-width: calc(100vw / 3.7);
-    }
-
 }
 
 @media screen and (max-width: 1124px) {
@@ -1144,8 +1212,8 @@ label, textarea{
     .hero-text{
         top: 12%;
         left: 5%;
+        max-width: 450px;
         transform: translate(0, 0);
-        max-width: 400px;
         text-align: left;
 
     }
@@ -1220,9 +1288,9 @@ label, textarea{
         margin: 0 20px;
     }
 
-    .button{
+    /* .button{
         margin-left: 20px;
-    }
+    } */
 
     /* nav */
   
@@ -1302,20 +1370,22 @@ label, textarea{
         width: 100%;
         padding: 3em 0;       
     }
+    .timeline h2{
+        border-bottom: 10px solid orange;
+        display: inline-block;
+        padding-left: 20px;
+       
+    }
 
     .recentLaunchTarget{
         height: 30vh;
-        min-width: calc(100vw / 3.2);  
+        min-width: calc(100vw / 3.3);  
     }
 
     .recentLaunchTarget h3{
         font-size: 1.3em;
         margin-left: -12px;
     } 
-
-    .recentLaunchTarget:hover{
-        min-width: calc(100vw / 1.8);
-    }
     .center{
         margin: 0 auto;
         width: 100%;
@@ -1353,8 +1423,6 @@ label, textarea{
         margin: 0 auto;
         padding: 20px;
     }
-
-    
     .launch-results{
         width: 100%;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1363,11 +1431,13 @@ label, textarea{
         grid-column-gap: 0px;
         padding-bottom: 2em;
     }
-
-    
     .launch-cards{
         margin: 0;
         display: none;
+    }
+
+    .rocketCounter{
+        width: 100%;
     }
 
     /* gallery */

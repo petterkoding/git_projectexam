@@ -259,7 +259,7 @@ async function getIssLocation() {
 getIssLocation();
 
 
-
+// recent launches slider btns
 const dotNav = document.querySelectorAll(".controller ul li");
 
 let defaultPosition = "translateX(0%)";
@@ -272,13 +272,14 @@ for (let i = 0; i < dotNav.length; i++) {
     }
     dotNav[1].onclick = function slideRecent() {
         timeline.style.transform = midPosition;
-        
-    dotNav[2].onclick = function slideRecent() {
-         timeline.style.transform = endPosition;
-         
-           
-        }
     }
+    dotNav[2].onclick = function slideRecent() {
+         timeline.style.transform = endPosition;  
+    }
+    
 }
+
+
+
 
 

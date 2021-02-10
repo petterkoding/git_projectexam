@@ -17,7 +17,7 @@ async function getPastLaunches() {
     launchResults.innerHTML = "";
     launchCount.innerHTML = "";
 
-    //
+    // search for rocket, name must be the same to be able to find
     const searchBtn = document.querySelector("#search-btn");
     const searchMsg = document.querySelector(".search-message");
     searchMsg.innerHTML = "Search e.g. Starlink-1, Turksat 5A, CRS-8";
@@ -58,7 +58,7 @@ async function getPastLaunches() {
     // count for each rocket
     let currentItems = 8;
 
-    launchCount.innerHTML = `Currently showing ${currentItems} of ${rockets.length} rocket launches`;
+    launchCount.innerHTML = `Currently showing <span>${currentItems} of ${rockets.length}</span> rocket launches`;
 
     loadmore.addEventListener("click", (e) => {
       const items = document.querySelectorAll(".launch-cards");
@@ -71,13 +71,13 @@ async function getPastLaunches() {
       currentItems += 8;
 
       // counting displaying rockets
-      launchCount.innerHTML = `Currently showing ${currentItems} of ${rockets.length} rocket launches`;
+      launchCount.innerHTML = `Currently showing <span>${currentItems} of ${rockets.length}</span> rocket launches`;
       if (currentItems >= items.length) {
         loadmore.style.display = "none";
         let difference = currentItems - rockets.length;
-        launchCount.innerHTML = `Currently showing ${
-          currentItems - difference
-        } of ${rockets.length} rocket launches`;
+        launchCount.innerHTML = `Currently showing <span>
+        ${currentItems - difference}
+        </span> of ${rockets.length} rocket launches`;
       }
     });
   } catch (error) {
@@ -91,33 +91,11 @@ getPastLaunches();
 
 
 
-// const search = document.querySelector("#search");
-//         const searchBtn = document.querySelector("#search-btn");
-//         const searchMsg = document.querySelector(".search-message");
-        
-//         searchBtn.onclick = function () {
-//           const searchCriteria = search.value;
-        
-//           const foundAMatch = isSame(searchCriteria);
-        
-        
-//           if (foundAMatch === true) {
-//             document.location.href = `details.html?id=${rockets.id}`;
-//           } else {
-//             searchMsg.innerHTML = `LOL`
-//           }
-//         }
-        
-//         function isSame(rocketToCheck) {
-//           if (rocketToCheck === rockets.name) {
-//             return true;
-//           }
-//           return false;
-//         }
-
-
-
-
-// const array = [{ name: "joe" }, { name: "biden" }, { name: "sara" }];
-
-
+const nightMode = document.querySelector(".nightmode");
+const switchContainer = document.querySelector(".nightmodeContainer");
+nightMode.onclick = function () {
+    let bodyElement = document.body;
+  bodyElement.classList.toggle("darkmode");
+  nightMode.classList.toggle("switchOn")
+  
+}
