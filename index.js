@@ -137,10 +137,10 @@ async function getUpcomingLaunch() {
 getUpcomingLaunch();
 
 
-// get past 4 launches SpaceX
-const pastLaunches = "https://api.spacexdata.com/v4/launches/past";
+// get past 6 launches SpaceX
+const pastLaunches = "https://api.spacexdata.com/v4/launches/past/";
 
-const timelineContainer = document.querySelector(".timelineContainer")
+const timeline = document.querySelector(".timelineContainer")
 
 async function getPastLaunches() {
     try {
@@ -149,7 +149,11 @@ async function getPastLaunches() {
         result.reverse();
         console.log(result)
 
-        timelineContainer.innerHTML = "";
+        timeline.innerHTML = "";
+ 
+   
+
+
 
         for (let i = 0; i < result.length; i++) {
 
@@ -161,33 +165,35 @@ async function getPastLaunches() {
             date = dateOfLaunch.getDate();
             let convertedDate = date + "/" + month + "/" + year;
            
-            if (result.length = 4) {         
-                // timelineContainer.classList.add(".recentLaunchTarget");
-                timelineContainer.innerHTML += `<a class="recentLaunchTarget" href="details.html?id=${result[i].id}">
-                                                    <div class="card-shadow-bg">
-                                                        <h3>${result[i].name}</h3>
-                                                        <p>${convertedDate}</p>
-                                                    </div>
-                                                </a>`;
-                
-                const recLaunchDiv = document.querySelectorAll(".recentLaunchTarget");
-
-                for (let i = 0; i < recLaunchDiv.length; i++) {
-                    let imageURL = result[i].links.flickr.original[0];
-                    if (imageURL) {
-                        recLaunchDiv[i].style.backgroundImage = `url(${imageURL})`;
-                    } else {
-                        recLaunchDiv[i].style.backgroundImage = `url(images/falcon.jpg)`;
-                    }
+            if (i <= 5) {         
+                timeline.innerHTML += `<a id="timelineItem${i}" class="recentLaunchTarget" href="details.html?id=${result[i].id}">
+                                            <div class="card-shadow-bg">
+                                                <h3>${result[i].name}</h3>
+                                                <p>${convertedDate}</p>
+                                            </div>
+                                        </a>`;
+            }
+         
+            // loop all divs to set a background img or use default
+            const recLaunchDiv = document.querySelectorAll(".recentLaunchTarget");
+            for (let i = 0; i < recLaunchDiv.length; i++) {
+                let imageURL = result[i].links.flickr.original[0];
+                if (imageURL) {
+                    recLaunchDiv[i].style.backgroundImage = `url(${imageURL})`;
+                } else {
+                    recLaunchDiv[i].style.backgroundImage = `url(images/falcon.jpg)`;
                 }
-            }      
+            }
         }
+        
+    
     } catch (error) {
         console.log(error)
     }
 }
 
 getPastLaunches();
+
 
 
 // fetch people in space
@@ -251,3 +257,28 @@ async function getIssLocation() {
 }
 
 getIssLocation();
+
+
+
+const dotNav = document.querySelectorAll(".controller ul li");
+
+let defaultPosition = "translateX(0%)";
+let midPosition = "translateX(-50%)";
+let endPosition = "translateX(-100%)";
+
+for (let i = 0; i < dotNav.length; i++) {
+    dotNav[0].onclick = function slideRecent() {
+        timeline.style.transform = defaultPosition; 
+    }
+    dotNav[1].onclick = function slideRecent() {
+        timeline.style.transform = midPosition;
+        
+    dotNav[2].onclick = function slideRecent() {
+         timeline.style.transform = endPosition;
+         
+           
+        }
+    }
+}
+
+

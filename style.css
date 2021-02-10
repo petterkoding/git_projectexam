@@ -5,7 +5,6 @@
     font-family: 'Oswald', 'Arial', sans-serif;
 }
 
-
 /* global css */
 
 h1 {
@@ -37,6 +36,7 @@ h1,h2,h3,h4{
 
 html, body {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 main{
@@ -341,12 +341,11 @@ header {
 }
 
 /* timeline */
-
 .timeline{
     margin: 0 auto;
-    width: 70%;
-    padding: 8em 0;
-   
+    width: 100%;
+    padding: 8em 0em;
+    margin-left: 20px;
 }
 .timeline h2{
     border-bottom: 10px solid orange;
@@ -355,17 +354,70 @@ header {
 }
 
 .timelineContainer{
+   display: grid;
+   grid-template-columns: repeat(6, auto);
+   transform: translateX(0%);
+   transition: all 1.5s ease-out;
+} 
+
+.recentLaunchTarget{
+    height: 400px;
+    min-width: calc(100vw / 3.1);
+    padding: 10px 15px;
+    margin: 20px 0;
+    background-size: cover;
+    transition: all 0.4s ease-out;
+    position: relative;
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    background-position: bottom;
+}
+.recentLaunchTarget:hover{
+    min-width: calc(100vw / 3.5);
+    filter: grayscale(0.8);
+    cursor: pointer;
+}
+
+.recentLaunchTarget:last-child{
+   border-right: 10px solid orange;
+}
+
+/* controller */
+.timeline .controller{
+    width: 100%;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.controller ul li{
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 1.8em;
+    color: rgb(78, 78, 78);
+    transform: scale(0.8);
+}
+
+.controller ul li:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    color: darkorange;
+}
+
+
+/* .timelineContainer{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     grid-template-rows: auto;
     justify-content: space-around;
     row-gap: 20px;
     column-gap: 20px;
-}
+}  */
 
-.recentLaunchTarget{
+
+/* .recentLaunchTarget{
     height: 350px;
-    width: 100%;
+    width: 200px;
     padding: 10px 15px;
     margin: 20px;
     background-size: cover;
@@ -376,41 +428,34 @@ header {
     position: relative;
     text-decoration: none;
     color: #000;
+}  */
+
+
+.recentLaunchTarget a{
+    position: absolute;
+    color: white;
+    text-decoration: none;
+    font-size: 3em;
+    width: 80px;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
 }
+   
 .recentLaunchTarget h3, .recentLaunchTarget p{
     color: #fff;
-}
+} 
 
 .card-shadow-bg{
    background-color: rgba(0, 0, 0, 0.5);
    width: calc(100% + 30px);
-   height: 80px;
+   height: 100px;
    margin-left: -15px;
    margin-top: -10px;
    padding: 5px 0 5px 20px;
 }
 
-.recentLaunchTarget:hover{
-    opacity: 0.8;
-    cursor: pointer; 
-}
 
-/* hover recent launches */
-.recentLaunchTarget::before{
-    position: absolute;
-    content:"";
-    left: 0;
-    bottom: -4%;
-    height: 10px;
-    width: 100%;
-    background-color: orange;
-    transform:scale(0);  
-}
-
-.recentLaunchTarget:hover::before{
-    transform: scale(1);
-    display: block;
-}
 
 /* people in space */
 .center-wrapper{
@@ -997,7 +1042,7 @@ label, textarea{
 .picture-of-the-day iframe{
     display: block;
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     border-left: 30px solid orange;
 }
 
@@ -1079,6 +1124,16 @@ label, textarea{
     opacity: 1;
 }
 
+@media screen and (max-width: 1515px){
+    .recentLaunchTarget{
+        height: 35vh; 
+        min-width: calc(100vw / 3.2);   
+    }
+    .recentLaunchTarget:hover{
+        min-width: calc(100vw / 3.7);
+    }
+
+}
 
 @media screen and (max-width: 1124px) {
     .nav-links {
@@ -1181,7 +1236,7 @@ label, textarea{
         margin-left: 30px;
     }
     
-    .nav-links {
+    .nav-links{
         position: absolute;
         right: 0px;
         height: 92vh;
@@ -1199,6 +1254,7 @@ label, textarea{
     
     .nav-links li {
         opacity: 0;
+        margin: 2em 0;
     }
     .burger {
         display: block;
@@ -1241,37 +1297,36 @@ label, textarea{
     }
 
 
-    /* recent timeline */
+    /* recent timeline */ 
     .timeline{
         width: 100%;
         padding: 3em 0;       
     }
 
-    .timelineContainer{
-        row-gap: 7px;
-    }
-    
-        
     .recentLaunchTarget{
-        height: 40vh;
-        width: 100%;
-        padding: 10px 15px;
-        margin: 20px 0;    
+        height: 30vh;
+        min-width: calc(100vw / 3.2);  
     }
 
+    .recentLaunchTarget h3{
+        font-size: 1.3em;
+        margin-left: -12px;
+    } 
+
+    .recentLaunchTarget:hover{
+        min-width: calc(100vw / 1.8);
+    }
     .center{
         margin: 0 auto;
         width: 100%;
         padding: 4em 0;
     }
-
     .newsletter{
         height: 40vh;
         width: 100%;
         margin: 0;
         padding: 0;
     }
-
     .sub-div{
         display: block;
         width: 100%;
@@ -1279,17 +1334,14 @@ label, textarea{
         transform: translate(0px, 0px);
         margin: 0 20px;
     }
-
     input{
         width: 300px;
         padding-left: 5px;
         margin: 0; 
     }
-  
     .newsletter p{
         padding-bottom: 1em;
     }
-
     .subscribe-btn{
         margin: 0;
     }

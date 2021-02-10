@@ -26,7 +26,8 @@ async function getAPOD() {
         }
 
         let mediaType = "";
-      
+        
+        // filter media type and display correct syntax for image/video
         if (imageOfTheDay.media_type === "image") {
             mediaType = `<img class="apod-image" src="${imageOfTheDay.url}" alt="${imageOfTheDay.title}"/>`;
         }

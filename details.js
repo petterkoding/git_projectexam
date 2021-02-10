@@ -14,9 +14,7 @@ async function fetchDetails() {
       const response = await fetch(url);
         const json = await response.json();
       console.log(json);
-      
-      const returnPage = document.querySelector(".return-to-last-page")
-      returnPage.innerHTML = `<a class="txt-link go-back-btn" href="launches.html">Go to last page</a>`;
+  
       createHtml(json);
     } catch (e) {
       console.log(e);
