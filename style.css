@@ -46,9 +46,8 @@ main{
 
 /* toggle nightmode */
 .nightmodeContainer{
-    position: absolute;
-    right: 40px;
-    top: 200px;
+    display: block;
+    margin: 0em 20px 20px 0px;
 }
 .switchBG{
     position: relative;
@@ -56,6 +55,7 @@ main{
     height: 35px;
     background: rgb(206, 206, 206);
     border-radius: 30px;
+    margin-left: auto;
 }
 .nightmode{
     display: inline-block;
@@ -88,9 +88,12 @@ main{
 .darkmode h3, .darkmode h4,
 .darkmode p, .darkmode span,
 .darkmode #loadmore{
-    background-color: rgb(20, 20, 20);
     color: #fff;
     transition: all 0.3s ease-out;
+}
+
+.darkmode{
+    background-color: rgb(20, 20, 20)
 }
 
 .moonLight{
@@ -653,6 +656,7 @@ footer .logo a{
     position: absolute;
     right: 10px;
     bottom: 5px;
+    font-size:0.8em;
 }
 
 footer ul li{
@@ -871,7 +875,7 @@ color: white;
 
 #search{
     background-color: rgb(241, 241, 241);
-    height: 70px;
+    height: 45px;
     padding: 0;
     margin: 0;
     border-bottom: 3px solid rgb(231, 231, 231);
@@ -882,7 +886,7 @@ color: white;
 }
 
 #search-btn{
-    height: 70px;
+    height: 45px;
     width: 62px;
     font-size: 1em;
     border-radius: 0;
