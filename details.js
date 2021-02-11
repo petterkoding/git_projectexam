@@ -44,13 +44,13 @@ function createHtml(json) {
   
 
   document.title = `${json.name}`;
-
+  // check if json has details if not display a message
   let hasDetails = json.details;
   let noDetails = `We're sorry. Looks like the launch details are missing.`;
   if(!hasDetails){
     hasDetails = noDetails;
   }
-
+  // check if json has article, if not link to wikipedia
   let readMoreLink = "";
   let wikipediaLink = `<a class="button dark" href="https://en.wikipedia.org/wiki/SpaceX" target="_blank">Read more</a>`;
   let articleLink = `<a class="button dark" href="${json.links.article}" target="_blank">Read more</a>`;
@@ -60,7 +60,7 @@ function createHtml(json) {
   } else {
     readMoreLink = articleLink;
   }
-  // video
+  // check if json has a video, if not link to Youtube
   let watch = "";
   let youtubeLink = `<a class="button dark" href="https://www.youtube.com/c/SpaceX/videos" target="_blank">Watch</a>`;
   let webcastLink = `<a class="button dark" href="${json.links.webcast}" target="_blank">Watch</a>`;
@@ -76,9 +76,6 @@ function createHtml(json) {
                                   <h1 class="detail-heading mobile-margin">${json.name}</h1>
                                   <div class="para para-margin">
                                     <p>${hasDetails}</p>
-                                  </div>
-
-                                  <div>
                                     ${readMoreLink}
                                     ${watch}
                                   </div>

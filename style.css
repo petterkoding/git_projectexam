@@ -583,13 +583,17 @@ iframe{
     background-size: cover;
     background-position: center;
     height: 50vh;
-    width: 100%;
+    width: 100vw;
     position: relative;
+    text-align: center;
 }
 .newsletter p{
     color: #fff;
     font-size: clamp(16px, 2vw, 22px);
-    
+    padding-bottom: 1em;
+}
+.newsletter form{
+    width: 500px;
 }
 
 .sub-div{
@@ -1419,33 +1423,18 @@ color: white;
         width: 100%;
         padding: 4em 0;
     }
-    .newsletter{
-        height: 40vh;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .sub-div{
-        display: block;
-        width: 100%;
-        left: 0;
-        transform: translate(0px, 0px);
+ 
+    .newsletter form input{
         margin: 0 20px;
-    }
-    input{
         width: 300px;
-        padding-left: 5px;
         margin: 0; 
-    }
-    .newsletter p{
-        padding-bottom: 1em;
-    }
+    } 
     .subscribe-btn{
         margin: 0;
+        padding: 15px 20px;
     }
 
     /* launch page */
-
     .launch-hero{
         width: 100%;
         margin: 0 auto;

@@ -42,9 +42,10 @@ async function getLatestLaunch(){
                                         <span class="launch-date mobile-margin">${result.date_local}</span>
                                         <div class="para para-margin">
                                             <p class="details">${result.details}</p>
+                                            ${readMoreLink}                    
+                                            ${watch}  
                                         </div>
-                                        ${readMoreLink}                    
-                                       ${watch}                    
+                                                         
                                     </div>`;
 
     } catch (e) {
