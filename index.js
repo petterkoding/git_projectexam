@@ -35,7 +35,6 @@ async function getLatestLaunch(){
           watch = webcastLink;
         }
 
-        latestDetails.classList.add("latest-info")
         latestImg.innerHTML = `<img class="two-col-img" src="${result.links.flickr.original[0]}" alt="Image of ${result.name}" onerror="this.src='images/rocket.jpg'">`;
         latestDetails.innerHTML = `<div class="two-col-info">
                                         <h3 class="mobile-margin">Latest</h3>
@@ -50,6 +49,8 @@ async function getLatestLaunch(){
 
     } catch (e) {
         console.log(e)
+        latestDetails = displayError("Error has occured");
+        latestImg.innerHTML = displayError("Error has occured");
     } finally {
         console.log("finally")
     }
@@ -125,10 +126,11 @@ async function getUpcomingLaunch() {
             }
         }, 1000);
         
-        
        
     } catch (e) {
         console.log(e)
+        upcomingContainer.innerHTML = displayError("Error has occured");
+        upcomingImg.innerHTML = displayError("Error has occured");
     } finally {
         console.log("finally")
     }
@@ -151,10 +153,6 @@ async function getPastLaunches() {
 
         timeline.innerHTML = "";
  
-   
-
-
-
         for (let i = 0; i < result.length; i++) {
 
             let localDate = result[i].date_local;
@@ -189,6 +187,7 @@ async function getPastLaunches() {
     
     } catch (error) {
         console.log(error)
+        timeline.innerHTML = displayError("Error has occured");
     }
 }
 
@@ -200,7 +199,6 @@ getPastLaunches();
 const url = "http://api.open-notify.org/astros.json";
 
 const pplContainer = document.querySelector(".peopleInSpaceNames")
-
 const peopleInSpace = document.querySelector(".currentPeopleInSpace")
 
 
@@ -225,7 +223,8 @@ async function getPeopleInSpace() {
         }
     } catch (error) {
         console.log(error)
-        pplContainer.innerHTML = `an error has occured`;
+        pplContainer.innerHTML = displayError("Error has occured");
+        peopleInSpace.innerHTML = displayError("Error has occured");
         
     }
 }

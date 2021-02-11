@@ -69,8 +69,12 @@ async function getAPOD() {
 
     } catch (error) {
         console.log(error)
+        picOfTheDay.innerHTML = displayError("Error has occured");
+        apodExp.innerHTML = displayError("Error has occured");
+        apodTitle.innerHTML = displayError("Error has occured");
+        
     } finally {
-        console.log("Fetched APOD");
+        console.log("Finally");
     }
 }
 
@@ -108,8 +112,7 @@ async function getImages() {
                 </div>`;
             }
             if (i > 32 && i < 45) {
-
-               
+                // fetch different images
                 const image2 = images[i].links.flickr.original[2];
                 gallery2.innerHTML +=
                 `<div class="gallery-item2">
@@ -123,8 +126,10 @@ async function getImages() {
             
     } catch (error) {
         console.log(error)
+        gallery1.innerHTML = displayError("Error has occured");
+        gallery2.innerHTML = displayError("Error has occured");
     } finally {
-        console.log("Fetched Gallery")
+        console.log("Finally")
     }
 
     

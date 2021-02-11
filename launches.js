@@ -82,15 +82,16 @@ async function getPastLaunches() {
     });
   } catch (error) {
     console.log(error);
+    launchResults.innerHTML = displayError("Error has occured");
   } finally {
-    console.log("past launches loaded successfully");
+    console.log("finally");
   }
 }
 getPastLaunches();
 
 
 
-
+// nightmode toggle
 const nightMode = document.querySelector(".nightmode");
 const switchContainer = document.querySelector(".nightmodeContainer");
 nightMode.onclick = function () {

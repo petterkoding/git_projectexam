@@ -8,6 +8,10 @@ if (id === null) {
 
 const url = "https://api.spacexdata.com/v4/launches/" + id;
 
+const detailsContainer = document.querySelector(".detailsContainer")
+const detailImgContainer = document.querySelector(".detail-img-container")
+const detailGallery = document.querySelector(".details-bottom-img")
+
 
 async function fetchDetails() {
     try {
@@ -18,6 +22,9 @@ async function fetchDetails() {
       createHtml(json);
     } catch (e) {
       console.log(e);
+      detailsContainer.innerHTML = displayError("Error has occured");
+      detailImgContainer.innerHTML = displayError("Error has occured");
+      detailGallery.innerHTML = displayError("Error has occured");
     } finally {
       console.log("Finally");
     }
@@ -25,17 +32,16 @@ async function fetchDetails() {
   
 fetchDetails();
   
-const detailsContainer = document.querySelector(".detailsContainer")
-const detailImgContainer = document.querySelector(".detail-img-container")
-const detailGallery = document.querySelector(".details-bottom-img")
-const readMore = document.querySelector(".read-more")
+// const detailsContainer = document.querySelector(".detailsContainer")
+// const detailImgContainer = document.querySelector(".detail-img-container")
+// const detailGallery = document.querySelector(".details-bottom-img")
 
 function createHtml(json) {
 
   detailsContainer.innerHTML = "";
   detailImgContainer.innerHTML = "";
   detailGallery.innerHTML = "";
-  readMore.innerHTML = "";
+  
 
   document.title = `${json.name}`;
 
@@ -77,17 +83,7 @@ function createHtml(json) {
                                     ${watch}
                                   </div>
                                 </div>`;
-  
-  // read more
-  readMore.innerHTML = `<div class="para">
-                          <h3 class="mobile-margin"><span>Aim high</span> Sky's the limit</h3>
-                          <p class="mobile-margin">
-                            If you'd like to read more about SpaceX on Wikipedia or their collaboration with NASA please visit:
-                          </p>
-                          <a class="link mobile-margin" href="https://www.nasa.gov/mission_pages/station/structure/launch/spacex.html" target="_blank"><i class="fas fa-link"></i> Nasa SpaceX</a>
-                          <a class="link mobile-margin" href="https://en.wikipedia.org/wiki/SpaceX" target="_blank"><i class="fas fa-link"></i> Spacex Wikipedia</a>
-                        </div>`;
-  
+
   
   // gallery images
   detailGallery.innerHTML = `<img src="${json.links.flickr.original[1]}" alt="Image of ${json.name}" onerror="this.src='images/falcon.jpg'"/>`;
@@ -147,6 +143,7 @@ function createHtml(json) {
         }
       } catch (e) {
         console.log(e);
+        rocketDetails.innerHTML = displayError("Error has occured");
       } finally {
         console.log("Rocket details found");
       }

@@ -50,12 +50,12 @@ main{
     margin: 0em 20px 20px 0px;
 }
 .switchBG{
-    position: relative;
     width: 80px;
     height: 35px;
-    background: rgb(206, 206, 206);
+    background: rgb(238, 238, 238);
     border-radius: 30px;
     margin-left: auto;
+    position: relative;
 }
 .nightmode{
     display: inline-block;
@@ -65,22 +65,38 @@ main{
     border: none;
     border-radius: 30px;
     font-size:1.3em;
-    color: rgb(129, 129, 129);
+    color: rgb(158, 158, 158);
+    background-color: rgb(200, 200, 200);
     margin: 0 3px;
     transform: translateX(0%);
     transition: all 0.6s ease-out;
+    
     
 }
 .nightmode:hover{
     background-color: rgb(3, 3, 3);
     color: rgb(243, 196, 109);
-    
+}
+.nightmode:hover + .hover-msg{
+    opacity: 1;
 }
 
 .switchOn{
     transform: translateX(100%);
     color: rgb(243, 196, 109);
     background-color: rgb(7, 7, 7);
+}
+
+.hover-msg{
+    color: rgb(114, 114, 114);
+    width: 100px;
+    display: block;
+    text-align: right;
+    position: absolute;
+    top: -80%;
+    left: -40%;
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
 }
 
 /* toggle to */
@@ -768,6 +784,14 @@ label, textarea{
     color: red;
 }
 
+.error-message{
+    display: inline-block;
+    color: red;
+    border: 1px solid red;
+    padding: 4px 6px;
+}
+
+
 .submit-button{
     margin-top: 2em;
     padding: 10px 20px;
@@ -1452,7 +1476,7 @@ color: white;
 
     /* launch details */
 
-    .read-more .para h3{
+    .read-more h3{
         font-size: 2.5em;
         font-weight: 100;
         color: #fff;
