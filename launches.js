@@ -3,39 +3,69 @@ const pastUrl = "https://api.spacexdata.com/v4/launches/past/";
 const launchResults = document.querySelector(".launch-results");
 const launchCount = document.querySelector("#launch-count");
 const loadmore = document.querySelector("#loadmore");
+let rockets = [];
+const searchMsg = document.querySelector(".search-message");
+const searchBar = document.querySelector("#searchbar");
+const prePopulatedList = document.querySelector(".suggestions");
+
+searchMsg.innerHTML = "";
+
+searchBar.addEventListener("keyup", (e) => {
+  const searchString = e.target.value.trim().toLowerCase();
+  const filteredRockets = rockets.filter(rocket => {
+    return rocket.name.toLowerCase().startsWith(searchString);
+  });
 
 
+  prePopulatedList.innerHTML = "";
+  for (let i = 0; i < filteredRockets.length; i++){
+    let li = document.createElement("li");
+    li.innerHTML += `<a class="txt-link" href="details.html?id=${filteredRockets[i].id}">${filteredRockets[i].name}</a>`;
+    li.classList.add("list-item");
+    prePopulatedList.appendChild(li);
+    
+  }
+  if (searchString === "" || searchString === null) {
+    prePopulatedList.innerHTML = "";
+  } 
+});
 
 async function getPastLaunches() {
   try {
     const response = await fetch(pastUrl);
-    const rockets = await response.json();
-    console.log(rockets);
+    rockets = await response.json();
     // reverse sort array latest to oldest
     rockets.reverse(); 
 
     launchResults.innerHTML = "";
     launchCount.innerHTML = "";
+    
+    createHTML(rockets);   
+  } catch (error) {
+    console.log(error);
+    launchResults.innerHTML = displayError("Error has occured");
+  } finally {
+    console.log("finally");
+  }
+}
+getPastLaunches();
 
-    // search for rocket, name must be the same to be able to find
-    const searchBtn = document.querySelector("#search-btn");
-    const searchMsg = document.querySelector(".search-message");
-    searchMsg.innerHTML = "Search e.g. Starlink-1, Turksat 5A, CRS-8";
-    const search = document.querySelector("#search");
-   
-    searchBtn.onclick = function () {
-      
-      for (let i = 0; i < rockets.length; i++) {
-        // check if the input.value matches a rocket name, find index and use index to get id
-        if (rockets[i].name.toLowerCase() === search.value.toLowerCase()) {
-          console.log("Rocket found at index " + i);
-          searchMsg.innerHTML = `Did you mean <a class="txt-link" href="details.html?id=${rockets[i].id}">${rockets[i].name} <i class="fas fa-link"></i></a>` 
-        }
 
-      };
-    } 
 
-    for (let i = 0; i < rockets.length; i++){
+// nightmode toggle
+const nightMode = document.querySelector(".nightmode");
+const switchContainer = document.querySelector(".nightmodeContainer");
+nightMode.onclick = function () {
+    let bodyElement = document.body;
+  bodyElement.classList.toggle("darkmode");
+  nightMode.classList.toggle("switchOn")
+  
+}
+
+
+
+function createHTML(rockets) {
+  for (let i = 0; i < rockets.length; i++){
 
     let cardImg = rockets[i].links.flickr.original[0];
 
@@ -80,23 +110,4 @@ async function getPastLaunches() {
         </span> of ${rockets.length} rocket launches`;
       }
     });
-  } catch (error) {
-    console.log(error);
-    launchResults.innerHTML = displayError("Error has occured");
-  } finally {
-    console.log("finally");
-  }
-}
-getPastLaunches();
-
-
-
-// nightmode toggle
-const nightMode = document.querySelector(".nightmode");
-const switchContainer = document.querySelector(".nightmodeContainer");
-nightMode.onclick = function () {
-    let bodyElement = document.body;
-  bodyElement.classList.toggle("darkmode");
-  nightMode.classList.toggle("switchOn")
-  
 }

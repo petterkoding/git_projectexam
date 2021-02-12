@@ -31,10 +31,6 @@ async function fetchDetails() {
   }
   
 fetchDetails();
-  
-// const detailsContainer = document.querySelector(".detailsContainer")
-// const detailImgContainer = document.querySelector(".detail-img-container")
-// const detailGallery = document.querySelector(".details-bottom-img")
 
 function createHtml(json) {
 
@@ -102,7 +98,7 @@ function createHtml(json) {
           if (rockets[i].id === json.rocket) {
             rocketDetails.innerHTML = `
             <div class="para para-margin">
-              <h3>Rocket used</h3>
+              <h3>Rocket info</h3>
               <div class="data-row">
                 <h4>Name</h4>
                 <span>${rockets[i].name}</span>

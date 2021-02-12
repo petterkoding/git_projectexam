@@ -35,15 +35,20 @@
         <h1>Past Launches</h1>
         <div class="para">
           <p>
-            View SpaceX Launch details and rocket data for each launch from 2006 until today.
+            Get detailed SpaceX launch data and rocket details for each launch counting from 2006 until today.
           </p>
           
         </div>
-        <div class="searchbar">
+        <div class="searchContainer">
           <h2>Search by name</h2>
           <div class="search-message"></div>
-          <input autofocus type="search" id="search">
-          <button  id="search-btn">Search</button>
+          <form action="#" autocomplete="off">
+              <input id="searchbar" placeholder="Enter a rocket name">
+              <button type="submit"  id="search-btn">Search</button>
+          </form>
+        </div>
+        <div id="auto-fill-list">
+          <ul class="suggestions"></ul>
         </div>
       </section>
       <div class="rocketCounter">
@@ -79,7 +84,7 @@
     <footer>
       <div class="footer-wrapper">
         <div class="logo">
-          <a href="index.html">SpaceX Cowboys</a>
+          <h4>SpaceX Cowboys</h4>
         </div>
         <div class="footer-links">
           <ul>

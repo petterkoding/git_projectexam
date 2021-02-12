@@ -40,9 +40,9 @@ html, body {
     background-color: #fff;
 }
 
-main{
+/* main{
     min-height: calc(100vh - 200px);
-}
+} */
 
 /* toggle nightmode */
 .nightmodeContainer{
@@ -419,7 +419,6 @@ header {
     margin: 0 auto;
     width: 100%;
     padding: 8em 0em;
-    /* margin-left: 20px; */
 }
 .timeline h2{
     border-bottom: 10px solid orange;
@@ -478,33 +477,6 @@ header {
     color: darkorange;
 }
 
-
-/* .timelineContainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    grid-template-rows: auto;
-    justify-content: space-around;
-    row-gap: 20px;
-    column-gap: 20px;
-}  */
-
-
-/* .recentLaunchTarget{
-    height: 350px;
-    width: 200px;
-    padding: 10px 15px;
-    margin: 20px;
-    background-size: cover;
-    transition: all 0.4s ease-out;
-    opacity: 1;
-    position: relative;
-    transition: all 0.2s ease;
-    position: relative;
-    text-decoration: none;
-    color: #000;
-}  */
-
-
 .recentLaunchTarget a{
     position: absolute;
     color: white;
@@ -529,8 +501,6 @@ header {
    padding: 5px 0 5px 20px;
 }
 
-
-
 /* people in space */
 .center-wrapper{
     max-width: 1400px;
@@ -541,11 +511,6 @@ header {
 }
 .center-wrapper .column-1{
     padding: 0 25px;
-}
-
-#station-img{
-    max-width: 700px;
-    height: auto;
 }
 
 .people{
@@ -559,9 +524,7 @@ header {
     margin-top: 3em;
 }
 
-
 /* location ISS */
-
 .center{
     margin: 0 auto;
     width: 50%;
@@ -602,7 +565,6 @@ iframe{
     left: 50%;
     transform: translate(-50%, 0);
 }
-
 .sub-div h3{
     color: #fff;
 }
@@ -644,60 +606,6 @@ input:focus:invalid {
 button:hover{
     cursor: pointer;
 }
-
-
-footer{
-    /* clear: both; */
-    width: 100%;
-    height: 200px;
-    background-color: #000;
-    color: #fff;
-    position: relative;
-}
-
-.footer-wrapper{
-    width: 90%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-footer .logo a{
-    font-size: 1.3em;
-    position: absolute;
-    bottom: 5px;
-    left: 10px;
-}
-
-.code-by{
-    position: absolute;
-    right: 10px;
-    bottom: 5px;
-    font-size:0.8em;
-}
-
-footer ul li{
-    display: inline-block;
-    margin: 0 3em;
-    font-size: 1.3em;
-}
-
-footer li a{
-    text-decoration: none;
-    color: rgba(255,255,255, 1);
-    transition: all 0.3s ease;
-}
-
-footer li a:hover{
-    border-bottom: 3px solid white;
-    color:rgba(255,255,255, 0.7);
-}
-
-
-
 
 /* CONTACT PAGE */
 
@@ -896,33 +804,75 @@ color: white;
 }
 
 /* searchfield */
-.searchbar{
+.searchContainer{
     height: auto;
     margin: 2em 0;
 }
+.searchContainer form{
+    height: 50px;
+}
 
-#search{
-    background-color: rgb(241, 241, 241);
-    height: 45px;
-    padding: 0;
+#auto-fill-list{
+    position: relative;
+    margin: 2em 0;
+    width: 300px;
+
+}
+
+#searchbar{
+    height: 100%;
+    width: 300px;
+    padding-left: 5px;
     margin: 0;
     border-bottom: 3px solid rgb(231, 231, 231);
+    color: #000;
+    background-color: rgb(246, 245, 245)
+    
 }
-#search:focus{
+
+.suggestions{
+    height: 100%;
+    min-height: auto;
+    width: 300px;
+    list-style: none;
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+}
+
+.list-item{
+    background-color: rgb(241, 241, 241);
+    padding: 0.1em 0;
+    border-bottom: 1px solid grey;
+}
+.list-item a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    color: rgb(41, 41, 41);
+    
+}
+.list-item a:hover{
+    background-color: rgb(65, 65, 65);
+    color: #fff;
+}
+
+#searchbar:focus{
     background-color: rgb(243, 243, 243);
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid rgb(167, 167, 167);
 }
 
 #search-btn{
-    height: 45px;
+    height: 50px;
     width: 62px;
     font-size: 1em;
     border-radius: 0;
     border: none;
     background-color: rgb(95, 95, 95);
-    border-bottom: 3px solid rgb(231, 231, 231);
     color: #fff;
     transition: all 0.3s ease;
+
 }
 #search-btn:hover{
     background-color: rgb(112, 112, 112);
@@ -1007,7 +957,7 @@ color: white;
 
 
 .detail-heading{
-    font-size: 4em;
+    font-size: 3.7em;
 }
 
 .details-bottom-img{
@@ -1228,6 +1178,59 @@ color: white;
     opacity: 1;
 }
 
+/* footer */
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+}
+
+.footer-wrapper{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer h4{
+    font-size: 1.3em;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color:#fff;
+}
+
+.code-by{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    font-size:0.8em;
+}
+
+footer ul li{
+    display: inline-block;
+    margin: 0 3em;
+    font-size: 1.3em;
+}
+
+footer li a{
+    text-decoration: none;
+    color: rgba(255,255,255, 1);
+    transition: all 0.3s ease;
+}
+
+footer li a:hover{
+    border-bottom: 3px solid white;
+    color:rgba(255,255,255, 0.7);
+}
+
+
 @media screen and (max-width: 1515px){
     .recentLaunchTarget{
         height: 35vh; 
@@ -1263,10 +1266,6 @@ color: white;
       }
 
     /* gallery */
-
-    .gallery-grid{
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    }
 
     .apod-wrapper{
         flex-direction: column-reverse;
@@ -1319,11 +1318,6 @@ color: white;
     .para-margin{
         margin: 0 20px;
     }
-
-    /* .button{
-        margin-left: 20px;
-    } */
-
     /* nav */
   
     nav {

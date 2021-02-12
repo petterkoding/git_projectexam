@@ -184,8 +184,6 @@ async function getPastLaunches() {
                 }
             }
         }
-        
-    
     } catch (error) {
         console.log(error)
         timeline.innerHTML = displayError("Error has occured");
