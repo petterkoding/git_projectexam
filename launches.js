@@ -1,14 +1,10 @@
-const pastUrl = "https://api.spacexdata.com/v4/launches/past/";
-
 const launchResults = document.querySelector(".launch-results");
 const launchCount = document.querySelector("#launch-count");
 const loadmore = document.querySelector("#loadmore");
 let rockets = [];
-const searchMsg = document.querySelector(".search-message");
 const searchBar = document.querySelector("#searchbar");
 const prePopulatedList = document.querySelector(".suggestions");
 
-searchMsg.innerHTML = "";
 
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.trim().toLowerCase();
@@ -29,6 +25,8 @@ searchBar.addEventListener("keyup", (e) => {
     prePopulatedList.innerHTML = "";
   } 
 });
+
+const pastUrl = "https://api.spacexdata.com/v4/launches/past/";
 
 async function getPastLaunches() {
   try {

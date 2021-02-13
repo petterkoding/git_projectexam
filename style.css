@@ -131,7 +131,7 @@ html, body {
     text-decoration: none;
     text-transform: uppercase;
     background: none;
-    border: 2px solid #fff;
+    outline: 2px solid #fff;
     font-size: clamp(16px, 2vw, 22px);
     font-weight: bold;
     color: #fff;
@@ -139,7 +139,9 @@ html, body {
     margin-top: 20px;
     position: relative;
     z-index: 1;
+    margin-right: 7px; 
 }
+
 
 .button:hover{
     color: #000;
@@ -156,7 +158,8 @@ html, body {
     transform-origin: bottom;
     background-color: #fff;
     z-index: -1;
-    transition: all 0.3s ease-out;
+    transition: all 0.35s ease-out;
+    
 }
 .button:hover::after{
     transform: scaleY(1);
@@ -164,7 +167,7 @@ html, body {
 }
 
 .button.dark{
-    border: 2px solid #000;
+    outline: 2px solid #000;
     color: #000;
 }
 .button.dark:hover{
@@ -596,7 +599,7 @@ input{
     display: inline-block;
     text-decoration: none;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #fff;
+    outline: 2px solid #fff;
     font-size: clamp(16px, 2vw, 22px);
     color: #000;
     width: 400px;
@@ -606,7 +609,7 @@ input{
     transition: all 0.3s ease-out
 }
 input.black{
-    border: 2px solid #000;
+    outline: 2px solid #000;
     color: #000;
    
 }
@@ -848,7 +851,6 @@ color: white;
     padding-left: 5px;
     margin: 0;
     border-bottom: 3px solid rgb(231, 231, 231);
-    /* color: #000; */
     background-color: rgb(246, 245, 245)
     
 }
@@ -876,7 +878,7 @@ color: white;
     color: rgb(41, 41, 41);
     
 }
-.list-item a:hover{
+.list-item a:hover, .list-item a:focus{
     background-color: rgb(65, 65, 65);
     color: #fff;
 }
@@ -1069,12 +1071,50 @@ color: white;
     opacity: 1;
     transform: scale(1);
     transition: all 4s ease-in-out;
+    
 }
 
 .gallery-item1, .gallery-item2{
     position: relative;
     overflow: hidden;
-} 
+}
+
+/* modal */
+.modal{
+    background-color: rgba(0, 0, 0, 0.746);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 100;
+}
+.open{
+    pointer-events: all;
+    opacity: 1;
+}
+
+.full-img{
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    transform: translate(-50%, 0%);
+    height: 85%;
+    width: 90%;
+    object-fit: cover;
+}
+
+.caption{
+    color: #fff;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 
 .gallery-item1 img:hover, .gallery-item2 img:hover{
     cursor: pointer;
@@ -1280,7 +1320,7 @@ footer li a:hover{
 
 @media screen and (max-width: 1124px) {
     .nav-links {
-      width: 60%;
+      width: 65%;
     }
 
     /* hero */
@@ -1430,7 +1470,6 @@ footer li a:hover{
         margin: 3em 0;
     }
 
-
     /* recent timeline */ 
     .timeline{
         width: 100%;
@@ -1439,8 +1478,7 @@ footer li a:hover{
     .timeline h2{
         border-bottom: 10px solid orange;
         display: inline-block;
-        padding-left: 20px;
-       
+        padding-left: 20px; 
     }
 
     .recentLaunchTarget{
@@ -1507,6 +1545,15 @@ footer li a:hover{
      .picture-of-the-day iframe{
         height: 270px;
     }
+    .full-img{
+        position: absolute;
+        left: 50%;
+        bottom: 10%;
+        transform: translate(-50%, 0%);
+        height: 82%;
+        width: 85%;
+        object-fit: cover;
+    }
 
     /* launch details */
 
@@ -1552,13 +1599,14 @@ footer li a:hover{
         width: 360px;
         display: inline-block;
         text-decoration: none;
-        border: 2px solid #000;
+        border: 1px solid #000;
         font-size: clamp(16px, 2vw, 22px);
         color: #000;
         padding-left: 5px;
         padding: 7px 5px;
         margin-bottom: 30px;
-        transition: all 0.3s ease-out
+        transition: all 0.3s ease-out;
+        outline: none;
     }
 
     .submit-button{
@@ -1621,7 +1669,6 @@ footer li a:hover{
         opacity: 0;
     }
 }
-
 
 /* loader animation */
 .loader{

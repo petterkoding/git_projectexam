@@ -48,8 +48,8 @@ form.addEventListener("submit", submitForm);
 
 function validateInput() {
 
-  let validStyle = "2px solid green";
-  let invalidStyle = "2px solid red";
+  let validStyle = "3px solid green";
+  let invalidStyle = "3px solid red";
 
   // name
   if (checkLength(fName.value, 2)) {

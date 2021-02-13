@@ -103,29 +103,53 @@ async function getImages() {
         gallery1.innerHTML = "";
         gallery2.innerHTML = "";
         for (let i = 0; i < images.length; i++){
+            
+            const modal = document.querySelector(".modal");
+            const fullImg = document.querySelector(".full-img");
+            const caption = document.querySelector(".caption");
+            const galleryImages = document.querySelectorAll(".gallery-images");
+
+            galleryImages.forEach(img => {
+            img.addEventListener("click", (e) => {
+                modal.classList.add("open");
+                console.log(e.target);
+                let imgSrc = e.target.src;
+                fullImg.src = imgSrc;
+                caption.innerHTML = e.target.alt;
+                })
+            })
+
+
+            modal.addEventListener("click", (e) => {
+            if (e.target.classList.contains("modal")) {
+                modal.classList.remove("open");
+                }
+            })
 
             if (i <= 7) {
-                
-                const image = images[i].links.flickr.original[1];
+                const imageSrc = images[i].links.flickr.original[1];
 
                 gallery1.innerHTML +=
                 `<div class="gallery-item1">
-                    <img class="gallery-images" src="${image}" alt="SpaceX rocket launch images" onerror="this.src='images/falcon.jpg'"/>
+                    <img class="gallery-images" src="${imageSrc}" alt="${images[i].name}  &copy; SpaceX Flickr" onerror="this.src='images/falcon.jpg'"/>
                     <span class="gallery-item-name">${images[i].name}</span>
                 </div>`;
             }
             if (i > 32 && i < 45) {
+              
                 // fetch different images
                 const image2 = images[i].links.flickr.original[2];
                 gallery2.innerHTML +=
                 `<div class="gallery-item2">
-                    <img class="gallery-images" src="${image2}" alt="SpaceX rocket launch images" onerror="this.src='images/falcon.jpg'"/>
+                    <img class="gallery-images" src="${image2}" alt="${images[i].name}  &copy; SpaceX Flickr" onerror="this.src='images/falcon.jpg'"/>
                     <span class="gallery-item-name">${images[i].name}</span>
                 </div>`;
             }
-         
+           
+
         }
-            
+        
+
             
     } catch (error) {
         console.log(error)
@@ -139,3 +163,7 @@ async function getImages() {
 }
 
 getImages();
+
+
+
+

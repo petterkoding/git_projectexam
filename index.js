@@ -123,7 +123,7 @@ async function getUpcomingLaunch() {
 
             if (distance < 0) {
                 clearInterval(x);
-                countdown.innerHTML = `expired`;
+                countdown.innerHTML = `Launch date has expired`;
             }
         }, 1000);
         
