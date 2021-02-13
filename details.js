@@ -96,12 +96,15 @@ function createHtml(json) {
         for (let i = 0; i < rockets.length; i++){
           // check if rocket id matches
           if (rockets[i].id === json.rocket) {
+            logo = rockets[i].name;
+            let trimmedLogo = logo.replace(" ", "");
+            logo = trimmedLogo;
             rocketDetails.innerHTML = `
             <div class="para para-margin">
               <h3>Rocket info</h3>
               <div class="data-row">
                 <h4>Name</h4>
-                <span>${rockets[i].name}</span>
+                <span>${rockets[i].name}</span><img class="icon" src="images/${logo}.svg">
               </div>
               <div class="data-row">
                 <h4>Engine type</h4>
@@ -131,7 +134,8 @@ function createHtml(json) {
             <div class="para para-margin">
               <h4>Description</h4>
               <p>${rockets[i].description}</p>
-            </div>`;
+            </div>`;           
+            
           }
         }
       } catch (e) {

@@ -35,10 +35,10 @@ async function getAPOD() {
             mediaType = `<iframe width="1000px" height="700px" src="${imageOfTheDay.url}" </iframe>`;
         }
 
-        picOfTheDay.innerHTML = `<div class="apod-container">
+        picOfTheDay.innerHTML = `<figure class="apod-container">
                                     ${mediaType}    
-                                    <p><span>Copyright&copy; ${credit}</span></p>
-                                </div>`;
+                                    <figcaption>Copyright&copy; ${credit}</figcaption>
+                                </figure>`;
         apodTitle.innerHTML = `<div>
                                 <h2>Astronomy picture of the Day</h2>
                                 <h3>${imageOfTheDay.title}</h3>
@@ -53,12 +53,15 @@ async function getAPOD() {
                                 Congratulations for winning the APOD.
                                 </p>
                             </div>
-            
+                            <h3>Weekly winners</h3>
+                            <div class="para">
+                            <p>The winner get's a free t-shirt and an official SpaceX Cowboys coffee mug!</p>
+                            </div>
                             <div class="enter-photo-poll">
                                 <h4>Want your own photo shown here?</h4>
                                 <div class="para">
                                     <p>Each day we select a subscribers photo to be highlighted here.
-                                    For a chance you must be follow and tweet your photo at us to enter!
+                                    For a chance you must follow and tweet your photo at us to enter!
                                     
                                     </p>
                                     <div>

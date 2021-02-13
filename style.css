@@ -27,6 +27,7 @@ h4 {
     padding-bottom: 1rem;
     max-width: 700px;
     color: #363636;
+    line-height: 1.6;
 }
 
 h1,h2,h3,h4{
@@ -107,7 +108,7 @@ html, body {
     color: #fff;
     transition: all 0.3s ease-out;
 }
-
+/* change to this BG color on darkmode */
 .darkmode{
     background-color: rgb(20, 20, 20)
 }
@@ -195,17 +196,23 @@ nav {
     min-height: 8vh;
     background-color: #030303;
 }
+
   
 header {
     position: relative;
+}
+
+.logo img{
+    background-color: white;
+    filter: invert();
 }
   
 .logo a{
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 2em;
-    font-weight: 800;
+    font-size: 1.3em;
+    font-weight: 400;
     text-decoration: none;
 }
 .logo a:hover {
@@ -325,7 +332,6 @@ header {
     color: #fff;
     line-height: 1.8;
 }
-
 
 .fa-chevron-down{
     position: absolute;
@@ -555,8 +561,25 @@ iframe{
     font-size: clamp(16px, 2vw, 22px);
     padding-bottom: 1em;
 }
-.newsletter form{
-    width: 500px;
+#news-form{
+    width: 700px;
+    background-color: rgba(0, 0, 0, 0.328);
+    padding: 10px 50px;
+    border: 1px solid #fff;
+}
+
+.success-msg{
+    font-size: clamp(18px, 2vw, 22px);
+    color: #000;
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.835);
+    margin: 0 auto;
+    margin-bottom: 2em;
+    padding: 4px;
+}
+.success-msg span{
+    margin-left: 10px;
+    color: rgb(40, 216, 55);
 }
 
 .sub-div{
@@ -575,7 +598,7 @@ input{
     background: rgba(255, 255, 255, 0.9);
     border: 2px solid #fff;
     font-size: clamp(16px, 2vw, 22px);
-    color: #fff;
+    color: #000;
     width: 400px;
     padding-left: 5px;
     padding: 15px 30px;
@@ -825,7 +848,7 @@ color: white;
     padding-left: 5px;
     margin: 0;
     border-bottom: 3px solid rgb(231, 231, 231);
-    color: #000;
+    /* color: #000; */
     background-color: rgb(246, 245, 245)
     
 }
@@ -946,6 +969,11 @@ color: white;
     text-decoration: none;
     color: inherit;
     border-left: 20px solid darkblue;
+    transition: all 0.3s ease-out;
+}
+.read-more .link:hover{
+    border-left: 30px solid orange;
+    background-color: rgb(245, 244, 244);
 }
 
 .fa-link{
@@ -981,9 +1009,10 @@ color: white;
 }
 .rocket-details h4{
     border-bottom: none;
+    display: block;
 }
 .rocket-details span{
-    display: block;
+    display: inline-block;
     font-size: clamp(19px, 2vw, 22px);
     
 }
@@ -996,6 +1025,13 @@ color: white;
     border-left:20px solid darkorange;
     padding-left: 15px;
 }
+
+.data-row .icon{
+    height: 25px;
+    width: auto;
+    margin-left: 1.2em;
+}
+
 .rocket-details .para{
     padding-right: 20px;
 }
@@ -1014,7 +1050,7 @@ color: white;
 .gallery-wrapper{
     margin: 0 auto;
     max-width: 120em;
-    padding: 1.2em 20px;
+    padding: 30px 20px;
 }
 
 .gallery-grid{
@@ -1070,7 +1106,7 @@ color: white;
 
 .apod-wrapper{
     width: 100%;
-    height: 70vh;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1089,7 +1125,7 @@ color: white;
 .picture-of-the-day img{
     display: block;
     width: 100%;
-    height: 60vh;
+    height: 100%;
     object-fit: cover;
     border-left: 30px solid orange;
 }
@@ -1114,14 +1150,16 @@ color: white;
 }
 
 .enter-photo-poll{
-    margin-top: 3em;
+    margin-top: 5em;
     background-color: #c3c3c32c;
     padding: 2em 1em;
+
 }
 
 .apod-congrats{
     background-color: #e6e6e62c;
     padding: 2em 1em;
+    margin: 1em 0em 5em 0em;
     border-left: 30px solid rgb(228, 228, 228);
 }
 
@@ -1198,12 +1236,14 @@ footer{
 }
 
 footer h4{
-    font-size: 1.3em;
+    font-size: 0.9em;
     position: absolute;
-    top: 5px;
+    top: 20px;
     left: 50%;
     transform: translate(-50%, 0);
-    color:#fff;
+    color:rgb(223, 223, 223);
+    font-weight: 100;
+    text-transform: uppercase;
 }
 
 .code-by{
@@ -1324,8 +1364,8 @@ footer li a:hover{
         justify-content: space-between;
     }
 
-    nav .logo a{
-        font-size: 1.3em;
+    nav .logo a, nav .logo img{
+        font-size: 1em;
         letter-spacing: 1px;
         margin-left: 30px;
     }
@@ -1417,10 +1457,13 @@ footer li a:hover{
         width: 100%;
         padding: 4em 0;
     }
- 
-    .newsletter form input{
+    #news-form{
+      width: 400px;
+      padding: 10px 30px;
+    } 
+    #news-form input{
         margin: 0 20px;
-        width: 300px;
+        width: 250px;
         margin: 0; 
     } 
     .subscribe-btn{
@@ -1452,7 +1495,15 @@ footer li a:hover{
     }
 
     /* gallery */
+
+    .gallery-grid{
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
     
+     .picture-of-the-day img{
+        height: auto;
+        width: 100%;
+    }
      .picture-of-the-day iframe{
         height: 270px;
     }

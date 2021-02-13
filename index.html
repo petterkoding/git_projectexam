@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SpaceX Cowboys is a microsite about SpaceX rocket launch information, rocket and launch site images."/>
+    <meta name="description" content="SpaceX Cowboys is a microsite about SpaceX rocket launch information, rockets. View rockets and launch site images."/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
   <header>
     <nav id="nav">
       <div class="logo">
+        <img id="spacexLogo" src="images/SpaceX_logo_black.svg">
         <a href="index.html">SpaceX Cowboys</a>
       </div>
         <ul class="nav-links">
@@ -27,6 +28,8 @@
         <div class="line2"></div>
         <div class="line3"></div>
       </div>
+
+      
     </nav>
   </header>
       <section class="hero">
@@ -43,12 +46,10 @@
               We focus on raising awareness about space program activity around the world and showing you the latest data.
               </p>
           </div>
-         
           <a class="button" href="launches.html">Past Launches</a>
           <a class="button" href="#recent">Recent Launches</a>
         </div>
-
-
+       
         <!-- chevron pointing down -->
         <span><i class="fas fa-chevron-down"></i></span>
       </section>
@@ -128,7 +129,7 @@
           <section class="two-col-container">
             <div class="column-1">
               <h3 class="mobile-margin">Attention spacecadet</h3>
-              <div class="para mobile-margin">
+              <div class="para para-margin">
                 <p>Get to know the current people in space and learn about what's happening at the International Space Station.</p>
                 <p>Watch Live streaming video and read about Education on Station that brings inspiration to the next generation.</p>
                 <a class="button dark" href="https://www.nasa.gov/audience/foreducators/stem-on-station/know_station" target="_blank">Learn more</a>
@@ -167,7 +168,8 @@
 
         <section class="newsletter">
           <div class="sub-div">
-            <form action="#">
+            <div class="success-msg"></div>
+            <form id="news-form" action="#">
               <h3>Join our newsletter</h3>
               <p>Receive SpaceX updates, notifications and news.</p>
               <input type="email" placeholder="e.g.subscribe@mail.com" required>

@@ -39,7 +39,7 @@ async function getLatestLaunch(){
         latestDetails.innerHTML = `<div class="two-col-info">
                                         <h3 class="mobile-margin">Latest</h3>
                                         <h2 class="rocketName mobile-margin">${result.name}</h2>
-                                        <span class="launch-date mobile-margin">${result.date_local}</span>
+                                        <time class="launch-date mobile-margin">${result.date_local}</time>
                                         <div class="para para-margin">
                                             <p class="details">${result.details}</p>
                                             ${readMoreLink}                    
@@ -95,7 +95,7 @@ async function getUpcomingLaunch() {
         
         upcomingContainer.innerHTML = `<div>
                                             <h2 class="rocketName mobile-margin">${result[0].name}</h2>
-                                            <span class="launch-date mobile-margin">${result[0].date_local}</span>
+                                            <time class="launch-date mobile-margin">${result[0].date_local}</time>
                                             <div class="para para-margin">
                                                 <p class="details">${launchDetails}</p>
                                             </div>                
@@ -277,7 +277,19 @@ for (let i = 0; i < dotNav.length; i++) {
     
 }
 
+const newsForm = document.querySelector("#news-form")
+const submitmessage = document.querySelector(".success-msg")
+
+submitmessage.style.display = "none";
+
+function submitForm(event) {
+    
+    event.preventDefault();
+    submitmessage.style.display = "block";
+    submitmessage.innerHTML = `Thanks for subscribing!<span><i class="fas fa-check-circle"></i></span>`;
+    newsForm.reset();
+}
 
 
-
+newsForm.addEventListener("submit", submitForm);
 
