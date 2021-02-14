@@ -404,7 +404,6 @@ header {
 
 .launch-date{
     display: block;
-    font-size: 1.4em;
     font-weight: bold;
 }
 
@@ -418,6 +417,7 @@ header {
 
 #countdown{
     margin-left: 20px;
+    font-size: 1.4em;
 }
 
 /* timeline */
