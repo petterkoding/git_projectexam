@@ -185,6 +185,15 @@ main{
     transform-origin: top;
 }
 
+.button:focus{
+    background: white;
+    color: #000;    
+}
+    .dark:focus{
+    background: #000;
+    color: #fff;    
+}
+
 /* nav */
 nav {
     display: flex;
@@ -923,13 +932,13 @@ color: white;
     
 }
 .list-item a:hover, .list-item a:focus{
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(65, 65, 65);          
     color: #fff;
 }
-
+        
 #searchbar:focus{
     background-color: rgb(243, 243, 243);
-    border-bottom: 3px solid rgb(167, 167, 167);
+    border: 3px solid rgb(0, 0, 0);
 }
 
 #search-btn{
@@ -945,6 +954,10 @@ color: white;
 }
 #search-btn:hover{
     background-color: rgb(112, 112, 112);
+}
+#search-btn:focus{
+    background-color: rgb(0, 0, 0);
+    color: #fff;
 }
 
 .item-count{
@@ -1553,6 +1566,10 @@ footer li a:hover{
     .subscribe-btn{
         margin: 0;
         padding: 15px 20px;
+    }
+    .subscribe-btn:focus{
+        background: #fff;
+        color: #000;
     }
 
     /* launch page */
