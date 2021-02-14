@@ -61,8 +61,6 @@ getLatestLaunch();
 
 
 
-
-
 // fetch upcoming launch information
 const upcomingLaunch = "https://api.spacexdata.com/v4/launches/upcoming/";
 
@@ -100,32 +98,6 @@ async function getUpcomingLaunch() {
                                                 <p class="details">${launchDetails}</p>
                                             </div>                
                                         </div>`;
-
-        // countdown
-        const countdown = document.querySelector("#countdown-time");
-        countdown.innerHTML = "";
-
-        let localDate = result[0].date_utc;
- 
-        var countDownDate = new Date(localDate).getTime();
-
-        var x = setInterval(function () {
-            let now = new Date().getTime();
-
-            var distance = countDownDate - now;
-
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / (1000));
-            
-            countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-            if (distance < 0) {
-                clearInterval(x);
-                countdown.innerHTML = `Launch date has expired`;
-            }
-        }, 1000);
         
        
     } catch (e) {

@@ -424,11 +424,6 @@ header {
     height: auto;
 }
 
-#countdown{
-    margin-left: 20px;
-    font-size: 1.2em;
-}
-
 /* timeline */
 .timeline{
     margin: 0 auto;
