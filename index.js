@@ -37,7 +37,7 @@ async function getLatestLaunch(){
 
         latestImg.innerHTML = `<img class="two-col-img" src="${result.links.flickr.original[0]}" alt="Image of ${result.name}" onerror="this.src='images/rocket.jpg'">`;
         latestDetails.innerHTML = `<div class="two-col-info">
-                                        <h3 class="mobile-margin">Latest</h3>
+                                        <h3 class="mobile-margin orange-border">Latest</h3>
                                         <h2 class="rocketName mobile-margin">${result.name}</h2>
                                         <time class="launch-date mobile-margin">${result.date_local}</time>
                                         <div class="para para-margin">
@@ -119,7 +119,7 @@ async function getUpcomingLaunch() {
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / (1000));
             
-            countdown.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            countdown.innerHTML = `<span>${days}d ${hours}h ${minutes}m ${seconds}s</span>`;
 
             if (distance < 0) {
                 clearInterval(x);
@@ -257,26 +257,63 @@ async function getIssLocation() {
 getIssLocation();
 
 
-// recent launches slider btns
+// recent launches slide track/thumb
 const dotNav = document.querySelectorAll(".controller ul li");
+const blah = document.querySelector(".slide-thumb")
 
 let defaultPosition = "translateX(0%)";
 let midPosition = "translateX(-50%)";
 let endPosition = "translateX(-100%)";
+// 
+let defPos = "translateX(0%)";
+let midPos = "translateX(100%)";
+let endPos = "translateX(200%)";
 
+// slides the image on click and adds/removes color
 for (let i = 0; i < dotNav.length; i++) {
-    dotNav[0].onclick = function slideRecent() {
-        timeline.style.transform = defaultPosition; 
+      dotNav[0].onclick = function slideRecent() {
+        timeline.style.transform = defaultPosition;
+        dotNav[0].style.color = "rgb(175, 175, 175)";
+        dotNav[1].style.color = "rgb(78, 78, 78)";
+        dotNav[2].style.color = "rgb(78, 78, 78)";
+        blah.style.transform = defPos;
     }
     dotNav[1].onclick = function slideRecent() {
         timeline.style.transform = midPosition;
+        dotNav[0].style.color = "rgb(78, 78, 78)";
+        dotNav[1].style.color = "rgb(175, 175, 175)";
+        dotNav[2].style.color = "rgb(78, 78, 78)";
+        blah.style.transform = midPos;
     }
     dotNav[2].onclick = function slideRecent() {
-         timeline.style.transform = endPosition;  
-    }
-    
+        timeline.style.transform = endPosition;
+        dotNav[0].style.color = "rgb(78, 78, 78)";
+        dotNav[1].style.color = "rgb(78, 78, 78)";
+        dotNav[2].style.color = "rgb(175, 175, 175)";
+        blah.style.transform = endPos;  
+    }    
 }
 
+// slides the images+ slide thumb depending on where you click
+const sliderLinks = document.querySelectorAll(".bars")
+
+for (let i = 0; i < sliderLinks.length; i++){
+    sliderLinks[1].onclick = function moves(){
+        blah.style.transform = endPos;
+        timeline.style.transform = endPosition;
+    }
+    sliderLinks[0].onclick = function moves(){
+        blah.style.transform = midPos;
+        timeline.style.transform = midPosition;
+    }
+    sliderLinks[2].onclick = function moves(){
+        blah.style.transform = defPos;
+        timeline.style.transform = defaultPosition;
+    }
+}
+
+
+// newsletter
 const newsForm = document.querySelector("#news-form")
 const submitmessage = document.querySelector(".success-msg")
 

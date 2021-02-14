@@ -10,7 +10,7 @@ const url = "https://api.spacexdata.com/v4/launches/" + id;
 
 const detailsContainer = document.querySelector(".detailsContainer")
 const detailImgContainer = document.querySelector(".detail-img-container")
-const detailGallery = document.querySelector(".details-bottom-img")
+const detailFooterImg = document.querySelector(".details-bottom-img")
 
 
 async function fetchDetails() {
@@ -24,7 +24,7 @@ async function fetchDetails() {
       console.log(e);
       detailsContainer.innerHTML = displayError("Error has occured");
       detailImgContainer.innerHTML = displayError("Error has occured");
-      detailGallery.innerHTML = displayError("Error has occured");
+      detailFooterImg.innerHTML = displayError("Error has occured");
     } finally {
       console.log("Finally");
     }
@@ -36,7 +36,7 @@ function createHtml(json) {
 
   detailsContainer.innerHTML = "";
   detailImgContainer.innerHTML = "";
-  detailGallery.innerHTML = "";
+  detailFooterImg.innerHTML = "";
   
 
   document.title = `${json.name}`;
@@ -67,7 +67,7 @@ function createHtml(json) {
     watch = webcastLink;
   }
 
-  detailImgContainer.innerHTML = `<img class="two-col-img" src="${json.links.flickr.original[0]}" alt="Image of SpaceX rocket on launch sites " onerror="this.src='images/falcon.jpg'"/>`;
+  detailImgContainer.innerHTML = `<img class="two-col-img" src="${json.links.flickr.original[0]}" alt="Image of SpaceX rocket on launch sites " onerror="this.src='images/sn8.jpg'"/>`;
   detailsContainer.innerHTML = `<div class="two-col-info">
                                   <h1 class="detail-heading mobile-margin">${json.name}</h1>
                                   <div class="para para-margin">
@@ -79,7 +79,7 @@ function createHtml(json) {
 
   
   // gallery images
-  detailGallery.innerHTML = `<img src="${json.links.flickr.original[1]}" alt="Image of ${json.name}" onerror="this.src='images/falcon.jpg'"/>`;
+  detailFooterImg.innerHTML = `<img src="${json.links.flickr.original[1]}" alt="Image of ${json.name}" onerror="this.src='images/sn8.jpg'"/>`;
    
   // create html
   const rocketURL = "https://api.spacexdata.com/v4/rockets/";

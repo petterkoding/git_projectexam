@@ -40,7 +40,7 @@ async function getAPOD() {
                                     <figcaption>Copyright&copy; ${credit}</figcaption>
                                 </figure>`;
         apodTitle.innerHTML = `<div>
-                                <h2>Astronomy picture of the Day</h2>
+                                <h2 class="orange-border">Astronomy picture of the Day</h2>
                                 <h3>${imageOfTheDay.title}</h3>
                                 </div>`;
         
@@ -53,11 +53,12 @@ async function getAPOD() {
                                 Congratulations for winning the APOD.
                                 </p>
                             </div>
-                            <h3>Weekly winners</h3>
-                            <div class="para">
-                            <p>The winner get's a free t-shirt and an official SpaceX Cowboys coffee mug!</p>
-                            </div>
                             <div class="enter-photo-poll">
+                                <h3>Weekly winners</h3>
+                                <div class="para">
+                                    <p>Each week, we pick 3 submissions that gets a free t-shirt and an official SpaceX Cowboys coffee mug!</p>
+                                </div>
+                            
                                 <h4>Want your own photo shown here?</h4>
                                 <div class="para">
                                     <p>Each day we select a subscribers photo to be highlighted here.
@@ -104,6 +105,7 @@ async function getImages() {
         gallery2.innerHTML = "";
         for (let i = 0; i < images.length; i++){
             
+            // modal
             const modal = document.querySelector(".modal");
             const fullImg = document.querySelector(".full-img");
             const caption = document.querySelector(".caption");
@@ -112,14 +114,14 @@ async function getImages() {
             galleryImages.forEach(img => {
             img.addEventListener("click", (e) => {
                 modal.classList.add("open");
-                console.log(e.target);
                 let imgSrc = e.target.src;
+                let imgAlt = e.target.alt;
                 fullImg.src = imgSrc;
-                caption.innerHTML = e.target.alt;
+                caption.innerHTML = `${imgAlt}`;
+                
                 })
             })
-
-
+            // close when user clicks outside
             modal.addEventListener("click", (e) => {
             if (e.target.classList.contains("modal")) {
                 modal.classList.remove("open");

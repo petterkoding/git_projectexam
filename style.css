@@ -6,7 +6,6 @@
 }
 
 /* global css */
-
 h1 {
     font-size: clamp(2.5rem, 3.7vw, 60px);
 }
@@ -20,8 +19,6 @@ h3 {
 h4 {
     font-size: clamp(1.2rem, 2.3vw, 27px);
 }
-
-
 .para p{
     font-size: clamp(19px, 2vw, 22px);
     padding-bottom: 1rem;
@@ -29,21 +26,18 @@ h4 {
     color: #363636;
     line-height: 1.6;
 }
-
 h1,h2,h3,h4{
-    color: #242424;
-    
+    color: #242424;   
 }
-
 html, body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     background-color: #fff;
 }
 
-/* main{
+main{
     min-height: calc(100vh - 200px);
-} */
+}
 
 /* toggle nightmode */
 .nightmodeContainer{
@@ -373,8 +367,11 @@ header {
 
 .two-col-container h3{
     display: inline-block;
-    border-bottom: 10px solid orange;
     padding-bottom: 5px;
+}
+
+.orange-border{
+    border-bottom: 8px solid orange;
 }
 
 .column-1{
@@ -430,10 +427,8 @@ header {
     padding: 8em 0em;
 }
 .timeline h2{
-    border-bottom: 10px solid orange;
     display: inline-block;
     padding-left: 120px;
-   
 }
 
 .timelineContainer{
@@ -450,14 +445,14 @@ header {
     margin: 20px 0px;
     margin-right: 7px;
     background-size: cover;
-    transition: all 0.4s ease-out;
+    transition: all 0.2s ease-out;
     position: relative;
     text-decoration: none;
     color: #000;
     background-position: bottom;
 }
 .recentLaunchTarget:hover{
-    filter: grayscale(0.8);
+    filter: grayscale(1);
     cursor: pointer;
 }
 
@@ -471,21 +466,70 @@ header {
     text-align: center;
     margin-top: 2em;
 }
-
 .controller ul li{
     display: inline-block;
     padding: 0 8px;
     font-size: 1.8em;
     color: rgb(78, 78, 78);
-    transform: scale(0.8);
+    transform: scale(0.9);
+    transition: all 0.2s ease-out;
 }
-
 .controller ul li:hover{
     cursor: pointer;
-    transform: scale(1.2);
-    color: darkorange;
+    transform: scale(1);
+}
+.controller ul li:active{
+    transform: scale(0.8);
+    transition: all 0s ease-out;
 }
 
+/* slider */
+.slide-track{
+    width: 90%;
+    height: 15px;
+    margin: 0 auto;
+    background: rgb(233, 233, 233);
+    border-radius: 7px;
+    position: relative;
+}
+
+.slide-thumb{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: calc(100% / 3);
+    background: rgb(179, 179, 179);
+    border-radius: 7px;
+    transform: translateX(0%);
+    transition: all 1.5s ease-out;
+}
+/* track links */
+.bars{
+    position: absolute;
+    height: 100%;
+    width: calc(100% / 3);
+    background: none;
+    text-align: center;
+    z-index: 20;
+}
+.bars:hover{
+    cursor: pointer;
+}
+.bars:nth-of-type(1){
+    left: 0%;
+    bottom: 0;
+}
+.bars:nth-of-type(2){
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0%);
+}
+.bars:nth-of-type(3){
+    left: 100%;
+    bottom: 0;
+    transform: translate(-100%, 0%);
+}
 .recentLaunchTarget a{
     position: absolute;
     color: white;
@@ -509,6 +553,7 @@ header {
    margin-top: -10px;
    padding: 5px 0 5px 20px;
 }
+
 
 /* people in space */
 .center-wrapper{
@@ -541,7 +586,6 @@ header {
 }
 .center h4{
     display: inline-block;
-    border-bottom: 10px solid orange;
 }
 
 iframe{
@@ -1053,6 +1097,7 @@ color: white;
     margin: 0 auto;
     max-width: 120em;
     padding: 30px 20px;
+    height: auto;
 }
 
 .gallery-grid{
@@ -1155,20 +1200,20 @@ color: white;
 
 .picture-of-the-day{
     width: 100%;
-    height: 700px;
-    flex: 2;
+    height: auto;
+    flex: 1;
     text-align: right;
-    margin-left: 5em;
+    margin-left: 5em;    
 }
 
-
-.picture-of-the-day img{
+.apod-image{
     display: block;
+    height: 700px;
     width: 100%;
-    height: 100%;
     object-fit: cover;
     border-left: 30px solid orange;
 }
+
 .picture-of-the-day iframe{
     display: block;
     width: 100%;
@@ -1182,7 +1227,6 @@ color: white;
 .apod-title h2{
     display: inline-block;
     margin-bottom: 1em;
-    border-bottom: 10px solid orange;
 }
 
 .apod-ex h3{
@@ -1193,6 +1237,10 @@ color: white;
     margin-top: 5em;
     background-color: #c3c3c32c;
     padding: 2em 1em;
+
+}
+.enter-photo-poll .para:nth-child(2){
+    padding-bottom: 2em;
 
 }
 
@@ -1476,8 +1524,6 @@ footer li a:hover{
         padding: 3em 0;       
     }
     .timeline h2{
-        border-bottom: 10px solid orange;
-        display: inline-block;
         padding-left: 20px; 
     }
 
@@ -1538,10 +1584,6 @@ footer li a:hover{
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     
-     .picture-of-the-day img{
-        height: auto;
-        width: 100%;
-    }
      .picture-of-the-day iframe{
         height: 270px;
     }
@@ -1629,9 +1671,8 @@ footer li a:hover{
         margin: 0 1em;
         font-size: 1em;
     }
-
 }
-  
+/* nav open */
 .nav-active {
     transform: translateX(0%);
     display: block;
@@ -1647,7 +1688,7 @@ footer li a:hover{
       transform: translateX(0px);
     }
 }
-  
+/* burger icon animations */
 .toggle .line1 {
     transform: translate(0px, 10px) rotate(45deg);
 }
